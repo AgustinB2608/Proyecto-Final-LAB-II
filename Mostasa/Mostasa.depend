@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1717488531 source:c:\users\berna\onedrive - frgp.utn.edu.ar\escritorio\proyecto lab ii\mostasa\main.cpp
+	<iostream>
+	<cstring>
+	<conio.h>
+	"Funciones\Funciones_Usuario.h"
+
+1717488463 c:\users\berna\onedrive - frgp.utn.edu.ar\escritorio\proyecto lab ii\mostasa\funciones\funciones_usuario.h
+

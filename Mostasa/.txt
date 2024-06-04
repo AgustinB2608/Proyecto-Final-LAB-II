@@ -1,0 +1,30 @@
+#include <cstring>
+#include <conio.h>
+#include <iostream>
+
+const char* ocultarContrasenia(char* cad)
+{
+    int pos = 0, tam = 10;
+    char caracter;
+    strcpy(cad, " ");
+
+    fflush(stdin);
+
+    while ((caracter = getch()) != '\r' && pos < tam)
+    {
+        if (caracter == '\b') {
+            if (pos > 0) {
+                std::cout << "\b \b";
+                pos--;
+            }
+        } else {
+            cad[pos++] = caracter;
+            std::cout << "*";
+        }
+    }
+
+    cad[pos] = '\0';
+    fflush(stdin);
+
+    return cad;
+}
