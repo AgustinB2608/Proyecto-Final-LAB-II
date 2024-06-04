@@ -7,3 +7,31 @@
 
 1717488463 c:\users\berna\onedrive - frgp.utn.edu.ar\escritorio\proyecto lab ii\mostasa\funciones\funciones_usuario.h
 
+1717540961 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\main.cpp
+	<iostream>
+	<cstring>
+	<conio.h>
+	"ProductosManager.h"
+
+1717540148 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos.cpp
+	"Productos.h"
+	<iostream>
+	<string>
+	<cstring>
+
+1717538037 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos.h
+	<string>
+
+1717533720 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productosarchivo.cpp
+	"ProductosArchivo.h"
+
+1717533721 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productosarchivo.h
+
+1717542090 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productosmanager.cpp
+	"ProductosManager.h"
+	<iostream>
+	<string>
+
+1717541886 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productosmanager.h
+	"Productos.h"
+
