@@ -32,6 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Clientes/Clientes.cpp" />
+		<Unit filename="Clientes/Clientes.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="Productos.cpp" />
 		<Unit filename="Productos.h">
 			<Option target="&lt;{~None~}&gt;" />

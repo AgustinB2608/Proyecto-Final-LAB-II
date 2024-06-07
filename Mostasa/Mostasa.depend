@@ -35,3 +35,46 @@
 1717541886 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productosmanager.h
 	"Productos.h"
 
+1717763773 source:c:\users\berna\onedrive - frgp.utn.edu.ar\escritorio\proyecto-final-lab-ii-master\mostasa\main.cpp
+	<cstring>
+	<conio.h>
+	"ProductosManager.h"
+	<iostream>
+	"Clientes\Clientes.h"
+
+1717691674 c:\users\berna\onedrive - frgp.utn.edu.ar\escritorio\proyecto-final-lab-ii-master\mostasa\productosmanager.h
+	"Productos.h"
+
+1717691674 c:\users\berna\onedrive - frgp.utn.edu.ar\escritorio\proyecto-final-lab-ii-master\mostasa\productos.h
+	<string>
+
+1717691674 source:c:\users\berna\onedrive - frgp.utn.edu.ar\escritorio\proyecto-final-lab-ii-master\mostasa\productos.cpp
+	"Productos.h"
+	<iostream>
+	<string>
+	<cstring>
+
+1717691674 source:c:\users\berna\onedrive - frgp.utn.edu.ar\escritorio\proyecto-final-lab-ii-master\mostasa\productosarchivo.cpp
+	"ProductosArchivo.h"
+	<iostream>
+	<string>
+	<cstring>
+
+1717691674 c:\users\berna\onedrive - frgp.utn.edu.ar\escritorio\proyecto-final-lab-ii-master\mostasa\productosarchivo.h
+	<iostream>
+	"Productos.h"
+
+1717691674 source:c:\users\berna\onedrive - frgp.utn.edu.ar\escritorio\proyecto-final-lab-ii-master\mostasa\productosmanager.cpp
+	"ProductosManager.h"
+	<iostream>
+	<string>
+
+1717763932 source:c:\users\berna\onedrive - frgp.utn.edu.ar\escritorio\proyecto-final-lab-ii-master\mostasa\clientes\clientes.cpp
+	"C:\Users\berna\OneDrive - frgp.utn.edu.ar\Escritorio\Proyecto-Final-LAB-II-master\Mostasa\Clientes\Clientes.h"
+	<cstring>
+	<iostream>
+
+1717762270 c:\users\berna\onedrive - frgp.utn.edu.ar\escritorio\proyecto-final-lab-ii-master\mostasa\clientes\clientes.h
+	<string>
+	<cstring>
+
