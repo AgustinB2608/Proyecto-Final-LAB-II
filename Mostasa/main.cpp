@@ -1,4 +1,4 @@
-/*#include <iostream>
+#include <iostream>
 #include <cstring>
 #include <conio.h>
 #include "ProductosManager.h"
@@ -19,8 +19,8 @@ int main(){
     cout << "\nLa contrasena ingresada es: " << password << endl;
 
     return 0;
-}*/
-
+}
+/*
 #include <iostream>
 #include "Clientes\Clientes.h"
 
@@ -43,4 +43,4 @@ int main() {
     return 0;
 }
 
-
+*/

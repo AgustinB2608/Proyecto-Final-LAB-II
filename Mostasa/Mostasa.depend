@@ -78,3 +78,49 @@
 	<string>
 	<cstring>
 
+1717794589 source:c:\users\euuna\onedrive\documentos\abi\proyecto final labo 2\proyecto-final-lab-ii\mostasa\clientes\clientes.cpp
+	"C:\Users\berna\OneDrive - frgp.utn.edu.ar\Escritorio\Proyecto-Final-LAB-II-master\Mostasa\Clientes\Clientes.h"
+	<cstring>
+	<iostream>
+
+1717798310 source:c:\users\euuna\onedrive\documentos\abi\proyecto final labo 2\proyecto-final-lab-ii\mostasa\main.cpp
+	<iostream>
+	<cstring>
+	<conio.h>
+	"ProductosManager.h"
+	<iostream>
+	"Clientes\Clientes.h"
+
+1717798854 c:\users\euuna\onedrive\documentos\abi\proyecto final labo 2\proyecto-final-lab-ii\mostasa\productosmanager.h
+	"Productos.h"
+	"ProductosArchivo.h"
+
+1717795849 c:\users\euuna\onedrive\documentos\abi\proyecto final labo 2\proyecto-final-lab-ii\mostasa\productos.h
+	<string>
+
+1717794589 c:\users\euuna\onedrive\documentos\abi\proyecto final labo 2\proyecto-final-lab-ii\mostasa\clientes\clientes.h
+	<string>
+	<cstring>
+
+1717796626 source:c:\users\euuna\onedrive\documentos\abi\proyecto final labo 2\proyecto-final-lab-ii\mostasa\productos.cpp
+	"Productos.h"
+	<iostream>
+	<string>
+	<cstring>
+
+1717794589 source:c:\users\euuna\onedrive\documentos\abi\proyecto final labo 2\proyecto-final-lab-ii\mostasa\productosarchivo.cpp
+	"ProductosArchivo.h"
+	<iostream>
+	<string>
+	<cstring>
+
+1717794589 c:\users\euuna\onedrive\documentos\abi\proyecto final labo 2\proyecto-final-lab-ii\mostasa\productosarchivo.h
+	<iostream>
+	"Productos.h"
+
+1717799031 source:c:\users\euuna\onedrive\documentos\abi\proyecto final labo 2\proyecto-final-lab-ii\mostasa\productosmanager.cpp
+	"ProductosManager.h"
+	<iostream>
+	<string>
+	<cstring>
+

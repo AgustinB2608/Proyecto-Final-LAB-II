@@ -10,7 +10,8 @@ private:
     float _Precio;
     char _Categoria[10];
 public:
-    //FALTA CONSTRUCTOR
+    Producto();
+    Producto(int ID, std::string Nombre, std::string Descripcion, int Cantidad, bool Disponible, float Precio, std::string Categoria);
     ///setters
     void setID(int ID);
     void setNombre(std::string Nombre);

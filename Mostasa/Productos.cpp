@@ -4,6 +4,17 @@
 #include<cstring>
 using namespace std;
 
+Producto::Producto(){
+}
+Producto::Producto(int ID, std::string Nombre, std::string Descripcion, int Cantidad, bool Disponible, float Precio, std::string Categoria){
+    _ID = ID;
+    strcpy(_Nombre,Nombre.c_str());
+    _Cantidad = Cantidad;
+    strcpy(_Descripcion,Descripcion.c_str());
+    _Disponible = Disponible;
+    _Precio = Precio;
+    strcpy(_Categoria,Categoria.c_str());
+}
 void Producto::setID(int ID){
     if(ID>0&&ID<100000){
         _ID = ID;
