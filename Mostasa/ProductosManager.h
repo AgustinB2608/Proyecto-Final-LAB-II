@@ -11,6 +11,10 @@ public:
     void MenuCategorias();
     Producto Crear();
     void Cargar();
+    void Listar();
+    void Mostrar(Producto x);
+    void Modificar();
+    void Buscar();
 
 
 };

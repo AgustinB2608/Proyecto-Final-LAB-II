@@ -117,28 +117,101 @@ void ProductoManager::bajaLogica(){
     else{cout<<"No se pudo eliminar, el producto no existe."<<endl;}
 
 }
+void ProductoManager::Listar(){
+    Producto x;
+    int cantreg = ProdArch.getCantidadRegistros();
+
+    for(int i=0;i<cantreg;i++){
+        x = ProdArch.leer(i);
+        cout<<"--------------------------------------------------"<<endl;
+        Mostrar(x);
+    }
+}
+void ProductoManager::Mostrar(Producto x){
+  if ((x.getDisponible())==true){
+    cout << "ID: " << x.getID() << endl;
+    cout << "Nombre: " << x.getNombre() << endl;
+    cout << "Descripcion: " << x.getDescrpcion() << endl;
+    cout << "Cantidad: " << x.getCantidad() << endl;
+    cout << "Precio: " << x.getPrecio() << endl;
+    cout << "Categoria: " << x.getCategoria() << endl;
+    }
+
+
+}
+void ProductoManager::Modificar(){
+    Producto x;
+    int ID, pos,cantP;
+    cout<<"Ingrese ID del producto a modificar: "<<endl;
+    cin>>ID;
+
+    pos = ProdArch.buscar(ID);
+
+    if (pos >= 0) {
+        x = ProdArch.leer(pos);
+
+    cout<<"Ingrese la nueva cantidad del producto: "<<endl;
+    cin>>cantP;
+    x.setCantidad(cantP);
+    if(ProdArch.Modificar(x,pos)){
+            cout<<"Se ha modificado correctamente"<<endl;
+        }
+        else  cout<<"No se puedo modificar el producto"<<endl;
+    }
+    else{cout<<"No se pudo modificar, el producto no existe"<<endl;}
+
+}
+void ProductoManager::Buscar(){
+    int pos,ID;
+    Producto x;
+    cout<<"Ingrese el ID del producto a buscar: "<<endl;
+    cin>>ID;
+    pos = ProdArch.buscar(ID);
+    if(pos>=0){
+        x=ProdArch.leer(pos);
+        if (x.getDisponible()){
+        Mostrar(x);
+        }
+        else{ cout<<"El municipio está dado de baja"<<endl;}
+
+    }
+    else{ cout<<"El municipio no se encuentra"<<endl;}
+
+}
 
 void ProductoManager::Menu(){
     int Opcion;
-    system("cls");
     while(true){
-    cout<<"---- MENU ----"<<endl;
-    cout<<"1 - CARGAR PRODUCTO"<<endl;
-    cout<<"2 - DAR DE BAJA PRODUCTO"<<endl;
-    cout<<"0 - SALIR"<<endl;
-    cin>>Opcion;
-    switch(Opcion){
-    case 1:
-        Cargar();
-        break;
-    case 2:
-        bajaLogica();
-        break;
-    case 0:
-        return;
-        break;
+        system("cls");
+        cout<<"---- MENU ----"<<endl;
+        cout<<"1 - CARGAR PRODUCTO"<<endl;
+        cout<<"2 - DAR DE BAJA PRODUCTO"<<endl;
+        cout<<"3 - LISTAR STOCK"<<endl;
+        cout<<"4 - MODIFICAR CANTIDAD DEL PRODUCTO"<<endl;
+        cout<<"5 - BUSCAR PRODUCTO POR ID"<<endl; ///listar de menor precio (o si no me sale id) a mayor
+        cout<<"0 - SALIR"<<endl;
+        cin>>Opcion;
+            switch(Opcion){
+            case 1:
+                Cargar();
+                break;
+            case 2:
+                bajaLogica();
+                break;
+            case 3:
+                Listar();
+                break;
+            case 4:
+                Modificar();
+                break;
+            case 5:
+                Buscar();
+                break;
+            case 0:
+                return;
+                break;
 
-    }
-     system("pause");
+            }
+            system("pause");
 }
 }

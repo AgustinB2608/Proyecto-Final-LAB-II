@@ -7,33 +7,38 @@
 
 1717488463 c:\users\berna\onedrive - frgp.utn.edu.ar\escritorio\proyecto lab ii\mostasa\funciones\funciones_usuario.h
 
-1717540961 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\main.cpp
+1718079197 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\main.cpp
 	<iostream>
-	<cstring>
-	<conio.h>
-	"ProductosManager.h"
+	"../MenuManager\MenuManager.h"
 
-1717540148 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos.cpp
+1718079197 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos.cpp
 	"Productos.h"
 	<iostream>
 	<string>
 	<cstring>
 
-1717538037 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos.h
+1718079197 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos.h
 	<string>
 
-1717533720 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productosarchivo.cpp
+1717705977 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productosarchivo.cpp
 	"ProductosArchivo.h"
+	<iostream>
+	<string>
+	<cstring>
 
-1717533721 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productosarchivo.h
+1717705888 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productosarchivo.h
+	<iostream>
+	"Productos.h"
 
-1717542090 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productosmanager.cpp
+1718082511 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productosmanager.cpp
 	"ProductosManager.h"
 	<iostream>
 	<string>
+	<cstring>
 
-1717541886 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productosmanager.h
+1718082499 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productosmanager.h
 	"Productos.h"
+	"ProductosArchivo.h"
 
 1717763773 source:c:\users\berna\onedrive - frgp.utn.edu.ar\escritorio\proyecto-final-lab-ii-master\mostasa\main.cpp
 	<cstring>
@@ -200,4 +205,44 @@
 1718068962 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\menumanager\menumanager.h
 	"../ProductosManager.h"
 	"../Clientes\ClientesManager.h"
+
+1718079197 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientes.cpp
+	"Clientes.h"
+	"../Fecha/Fecha.h"
+	<cstring>
+	<iostream>
+
+1718079197 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientes.h
+	<string>
+	<cstring>
+	"../Fecha/Fecha.h"
+
+1718079197 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\fecha\fecha.h
+	<iostream>
+	<string.h>
+
+1718079197 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.cpp
+	"ClientesManager.h"
+	<iostream>
+	<string>
+	<cstring>
+
+1718079197 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.h
+	"../Fecha/Fecha.h"
+	"../Clientes/Clientes.h"
+
+1718079197 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\fecha\fecha.cpp
+	<iostream>
+	<cstring>
+	<string>
+	<ctime>
+	"Fecha.h"
+
+1718079197 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\menumanager\menumanager.h
+	"../ProductosManager.h"
+	"../Clientes\ClientesManager.h"
+
+1718079197 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\menumanager\menumanager.cpp
+	"../MenuManager\MenuManager.h"
+	<iostream>
 
