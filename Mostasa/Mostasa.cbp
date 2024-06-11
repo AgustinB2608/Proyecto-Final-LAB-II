@@ -13,6 +13,9 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="Fecha" />
+					<Add directory="C:/Users/berna/OneDrive - frgp.utn.edu.ar/Programacion/Laboratorio de Computación II/2024/Proyecto Final Mostasa Lab II/Proyecto-Final-LAB-II/Mostasa/Fecha" />
+					<Add directory="C:/Users/berna/OneDrive - frgp.utn.edu.ar/Programacion/Laboratorio de Computación II/2024/Proyecto Final Mostasa Lab II/Proyecto-Final-LAB-II/Mostasa/MenuManager" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -31,9 +34,21 @@
 		<Compiler>
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
+			<Add directory="C:/Users/berna/OneDrive - frgp.utn.edu.ar/Programacion/Laboratorio de Computación II/2024/Proyecto Final Mostasa Lab II/Proyecto-Final-LAB-II/Mostasa/Clientes" />
+			<Add directory="C:/Users/berna/OneDrive - frgp.utn.edu.ar/Programacion/Laboratorio de Computación II/2024/Proyecto Final Mostasa Lab II/Proyecto-Final-LAB-II/Mostasa/MenuManager" />
 		</Compiler>
 		<Unit filename="Clientes/Clientes.cpp" />
 		<Unit filename="Clientes/Clientes.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="Clientes/ClientesManager.cpp" />
+		<Unit filename="Clientes/ClientesManager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="Fecha/Fecha.cpp" />
+		<Unit filename="Fecha/Fecha.h" />
+		<Unit filename="MenuManager/MenuManager.cpp" />
+		<Unit filename="MenuManager/MenuManager.h">
 			<Option target="&lt;{~None~}&gt;" />
 		</Unit>
 		<Unit filename="Productos.cpp" />
