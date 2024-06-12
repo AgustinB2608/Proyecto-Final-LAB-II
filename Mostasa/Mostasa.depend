@@ -135,26 +135,22 @@
 	<cstring>
 	<iostream>
 
-1718067916 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\main.cpp
-	<cstring>
-	<conio.h>
-	"ProductosManager.h"
+1718095892 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\main.cpp
 	<iostream>
-	"Clientes/Clientes.h"
-	"../Clientes/ClientesManager.h"
+	"../MenuManager\MenuManager.h"
 
-1717804149 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\productosmanager.h
+1718095718 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\productosmanager.h
 	"Productos.h"
 	"ProductosArchivo.h"
 
 1717804149 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\productos.h
 	<string>
 
-1717804149 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\productosarchivo.h
+1718095718 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\productosarchivo.h
 	<iostream>
 	"Productos.h"
 
-1718065790 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\clientes\clientes.h
+1718100291 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\clientes\clientes.h
 	<string>
 	<cstring>
 	"../Fecha/Fecha.h"
@@ -171,7 +167,7 @@
 	<string>
 	<cstring>
 
-1717804149 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\productosmanager.cpp
+1718094635 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\productosmanager.cpp
 	"ProductosManager.h"
 	<iostream>
 	<string>
@@ -188,15 +184,16 @@
 	<iostream>
 	<string.h>
 
-1718067956 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.cpp
-	"ClientesManager.h"
+1718101971 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.cpp
+	"../Clientes/ClientesManager.h"
 	<iostream>
 	<string>
 	<cstring>
 
-1718064972 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.h
+1718100001 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.h
 	"../Fecha/Fecha.h"
 	"../Clientes/Clientes.h"
+	"../Clientes/ClientesArchivo.h"
 
 1718069026 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\menumanager\menumanager.cpp
 	"../MenuManager\MenuManager.h"
@@ -245,4 +242,42 @@
 1718079197 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\menumanager\menumanager.cpp
 	"../MenuManager\MenuManager.h"
 	<iostream>
+
+1718101114 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\clientes\clientesarchivo.cpp
+	"../Clientes\ClientesArchivo.h"
+	<iostream>
+
+1718100382 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\clientes\clientesarchivo.h
+	<string>
+	<cstdio>
+	"../Clientes\Clientes.h"
+
+1718095940 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\productos\productos.cpp
+	"../Productos/Productos.h"
+	<iostream>
+	<string>
+	<cstring>
+
+1717804149 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\productos\productos.h
+	<string>
+
+1718095941 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\productos\productosarchivo.cpp
+	"../Productos/ProductosArchivo.h"
+	<iostream>
+	<string>
+	<cstring>
+
+1718095941 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\productos\productosarchivo.h
+	<iostream>
+	"../Productos/Productos.h"
+
+1718095940 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\productos\productosmanager.cpp
+	"../Productos/ProductosManager.h"
+	<iostream>
+	<string>
+	<cstring>
+
+1718095941 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\productos\productosmanager.h
+	"../Productos/Productos.h"
+	"../Productos/ProductosArchivo.h"
 

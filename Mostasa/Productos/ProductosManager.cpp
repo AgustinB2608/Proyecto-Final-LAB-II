@@ -1,4 +1,4 @@
-#include "ProductosManager.h"
+#include "../Productos/ProductosManager.h"
 #include <iostream>
 #include <string>
 #include <cstring>

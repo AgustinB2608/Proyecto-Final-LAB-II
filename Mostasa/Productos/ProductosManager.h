@@ -1,6 +1,6 @@
 #pragma once
-#include "Productos.h"
-#include "ProductosArchivo.h"
+#include "../Productos/Productos.h"
+#include "../Productos/ProductosArchivo.h"
 class ProductoManager{
 private:
     Producto Prod;

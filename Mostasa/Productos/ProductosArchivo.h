@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "Productos.h"
+#include "../Productos/Productos.h"
 class ProductoArchivo{
     private:
     bool abrirA(std::string modo = "rb");

@@ -1,4 +1,4 @@
-#include "ClientesManager.h"
+#include "../Clientes/ClientesManager.h"
 #include <iostream>
 #include <string>
 #include <cstring>
@@ -41,57 +41,157 @@ Cliente ClienteManager::Crear() {
 
     cliente.setActivo(true);
 
-
     return cliente;
 }
 
-/*void ClienteManager::ListarClientes() {
+void ClienteManager::Cargar() {
+    Cliente C = Crear();
 
-    cliente.setActivo(false);
+    if (ClienteArc.guardar(C)) {
+        cout << "Guardado" << endl;
+    } else {
+        cout << "No Guardado" << endl;
+    }
+}
 
-    if(cliente.getActivo()==true){
+void ClienteManager::bajaLogica() {
+    Cliente C;
+    int ID, pos;
+    cout << "Ingresar ID: " << endl;
+    cin >> ID;
 
-    for(int i=0; i < 5; i++){
-        cout << "ID: " << cliente.getIDCliente() << endl;
-        cout << "Nombre: " << cliente.getNombreCliente() << endl;
-        cout << "Email: " << cliente.getEmailCliente() << endl;
-        cout << "Telefono: " << cliente.getTelefonoCliente() << endl;
-        cliente.getFechaCreacion().MostrarFecha();
-        cout << "Activo: " << (cliente.getActivo() ? "Si" : "No") << endl;
+    pos = ClienteArc.buscar(ID);
+
+    if (pos >= 0) {
+        C = ClienteArc.leer(pos);
+        C.setActivo(false);
+        if (ClienteArc.Modificar(C, pos)) {
+            cout << "Eliminado" << endl;
+        } else {
+            cout << "No eliminado" << endl;
+        }
+    } else {
+        cout << "No existe." << endl;
+    }
+}
+
+void ClienteManager::Listar() {
+    Cliente C;
+    int cantreg = ClienteArc.getCantidadRegistros();
+
+    for (int i = 0; i < cantreg; i++) {
+        C = ClienteArc.leer(i);
+        Mostrar(C);
+    }
+}
+
+void ClienteManager::Mostrar(Cliente C) {
+    if (C.getActivo()) {
+        cout << "ID: " << C.getIDCliente() << endl;
+        cout << "Nombre: " << C.getNombreCliente() << endl;
+        cout << "Email: " << C.getEmailCliente() << endl;
+        cout << "Telefono: " << C.getTelefonoCliente() << endl;
+        C.getFechaCreacion().MostrarFecha();
+        cout << "Activo: " << (C.getActivo() ? "Si" : "No") << endl;
         cout << "-----------------------------" << endl;
     }
+}
+
+void ClienteManager::Modificar() {
+    Cliente C;
+    C.setActivo(false);
+    int ID, pos;
+    cout << "Ingresar ID: " << endl;
+    cin >> ID;
+
+    pos = ClienteArc.buscar(ID);
+
+    if (pos >= 0) {
+        C = ClienteArc.leer(pos);
+
+        string Nombre, Email, Telefono;
+        Fecha fecha;
+
+        cout << "Modificar Nombre (actual: " << C.getNombreCliente() << "): " << endl;
+        cin.ignore();
+        getline(cin, Nombre);
+        C.setNombreCliente(Nombre);
+
+        cout << "Modificar Email (actual: " << C.getEmailCliente() << "): " << endl;
+        getline(cin, Email);
+        C.setEmailCliente(Email);
+
+        cout << "Modificar Teléfono (actual: " << C.getTelefonoCliente() << "): " << endl;
+        getline(cin, Telefono);
+        C.setTelefonoCliente(Telefono);
+
+        cout << "Fecha: " << endl;
+        fecha.CargarFecha();
+        C.setFechaCreacion(fecha);
+
+        if (ClienteArc.Modificar(C, pos)) {
+            cout << "Modificado correctamente" << endl;
+        } else {
+            cout << "No se pudo modificar" << endl;
+        }
+    } else {
+        cout << "No se pudo modificar, el cliente no existe" << endl;
     }
+}
 
-}*/
-
+void ClienteManager::Buscar() {
+    int pos, ID;
+    Cliente C;
+    cout << "Ingresar el ID  " << endl;
+    cin >> ID;
+    pos = ClienteArc.buscar(ID);
+    if (pos >= 0) {
+        C = ClienteArc.leer(pos);
+        if (C.getActivo()) {
+            Mostrar(C);
+        } else {
+            cout << "Dado de baja" << endl;
+        }
+    } else {
+        cout << "No se encuentra" << endl;
+    }
+}
 
 void ClienteManager::Menu() {
     int Op;
     system("cls");
+    Cliente c;
+    c.setActivo(false);
     while (true) {
         cout << "---- MENU CLIENTES ----" << endl;
-        cout << "1 - AGREGAR CLIENTE" << endl;
+        cout << "\n" << endl;
+        cout << "1 - AÑADIR CLIENTE" << endl;
         cout << "2 - ELIMINAR CLIENTE" << endl;
-        cout << "3 - MODIFICAR" << endl;
+        cout << "3 - MODIFICAR DATOS DE CLIENTE" << endl;
         cout << "4 - LISTAR CLIENTES" << endl;
         cout << "5 - BUSCAR POR ID" << endl;
         cout << "0 - VOLVER" << endl;
+        cout << "\n" << endl;
+        cout << "-----------------------" << endl;
         cin >> Op;
         switch (Op) {
         case 1:
-            Crear();
+            Cargar();
             break;
         case 2:
-            // bajaLogica();
+            bajaLogica();
             break;
         case 3:
-            // modificar();
+            Modificar();
             break;
         case 4:
-            //ListarClientes();
+            Listar();
             break;
         case 5:
-            // buscarPorID();
+            //Buscar();
+             cout << "Activo: " << (c.getActivo() ? "Si" : "No") << endl;
+
+
             break;
         case 0:
             return;
