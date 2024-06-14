@@ -129,3 +129,12 @@ bool ProductoArchivo::restaurarCopia(string filename){
     cerrarA();
     return true;
 }
+void ProductoArchivo::CopiarRegVec(Producto *v,int cant){
+    int totalReg = getCantidadRegistros();
+    if (cant > totalReg) {
+        cant = totalReg; // Asegurarse de no leer más de lo disponible
+    }
+    for (int i = 0; i < cant; ++i) {
+        v[i] = leer(i);
+    }
+}

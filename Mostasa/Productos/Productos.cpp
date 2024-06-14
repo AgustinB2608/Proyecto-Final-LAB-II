@@ -66,7 +66,7 @@ void Producto::setCategoria(string Categoria){
 
 int Producto::getID(){return _ID;}
 string Producto::getNombre(){return _Nombre;}
-string Producto::getDescrpcion(){return _Descripcion;}
+string Producto::getDescripcion(){return _Descripcion;}
 int Producto::getCantidad(){return _Cantidad;}
 bool Producto::getDisponible(){return _Disponible;}
 float Producto::getPrecio(){return _Precio;}

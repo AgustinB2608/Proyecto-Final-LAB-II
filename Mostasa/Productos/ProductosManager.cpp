@@ -49,45 +49,48 @@ void ProductoManager::MenuCategorias(){
 
 }
 }
-Producto ProductoManager::Crear(){ ///Tengo que modificar esto para que no tome productos ya existentes o dados de baja
+Producto ProductoManager::Crear(){
     int ID, Cantidad;
     string Nombre,Descripcion,Categoria;
     float Precio;
     do{
     cout<<"Ingrese ID: "<<endl;
     cin>>ID;
+    if (ProdArch.buscar(ID)>-1)cout<<"Ya existe un producto con esa ID"<<endl;
     Prod.setID(ID);
-    }while(Prod.getID() == -1);//mas adelante en el programa va a hacer falta poner mas validaciones, como para saber si el producto está dado de baja o si ya existe
+    if (Prod.getID() == -1)cout<<"El ID ingresado es invalido"<<endl;
+    }while(Prod.getID() == -1 || ProdArch.buscar(ID)>-1);//mas adelante en el programa va a hacer falta poner mas validaciones, como para saber si el producto está dado de baja o si ya existe
     do{
     cout<<"Ingrese nombre: "<<endl;
     cin.ignore();
     getline(cin,Nombre);
     Prod.setNombre(Nombre);
+    if (Prod.getNombre() == " ")cout<<"El nombre ingresado es invalido"<<endl;
     }while(Prod.getNombre() == " ");
     do{
     cout<<"Ingrese descripcion: "<<endl;
-    cin.ignore();
+    //cin.ignore();
     getline(cin,Descripcion);
     Prod.setDescripcion(Descripcion);
-    }while(Prod.getDescrpcion() == " ");
+    if (Prod.getDescripcion() == " ")cout<<"La descripcion ingresada es invalido"<<endl;
+    }while(Prod.getDescripcion() == " ");
     do{
     cout<<"Ingrese cantidad: "<<endl;
     cin>>Cantidad;
     Prod.setCantidad(Cantidad);
+    if (Prod.getCantidad() == -1)cout<<"La cantidad ingresada es invalido"<<endl;
     }while(Prod.getCantidad() == -1);
     do{
     cout<<"Ingrese precio: "<<endl;
     cin>>Precio;
     Prod.setPrecio(Precio);
+    if (Prod.getPrecio() == -1)cout<<"El precio ingresado es invalido"<<endl;
     }while(Prod.getPrecio() == -1);
     MenuCategorias();
     Categoria = Prod.getCategoria();
-
-    cout<<"PRUEBA PARA VER SI SE GUARDA BIEN LA CATEGORIA: "<<Prod.getCategoria()<<endl;
-    system("pause");
     Prod.setDisponible(true);
-    Producto x(ID,Nombre,Descripcion,Cantidad,true,Precio,Categoria);
-    return(x);
+    //Producto x(ID,Nombre,Descripcion,Cantidad,true,Precio,Categoria);
+    return(Prod);
 }
 void ProductoManager::Cargar(){
     Producto x;
@@ -131,7 +134,7 @@ void ProductoManager::Mostrar(Producto x){
   if ((x.getDisponible())==true){
     cout << "ID: " << x.getID() << endl;
     cout << "Nombre: " << x.getNombre() << endl;
-    cout << "Descripcion: " << x.getDescrpcion() << endl;
+    cout << "Descripcion: " << x.getDescripcion() << endl;
     cout << "Cantidad: " << x.getCantidad() << endl;
     cout << "Precio: " << x.getPrecio() << endl;
     cout << "Categoria: " << x.getCategoria() << endl;
@@ -149,6 +152,11 @@ void ProductoManager::Modificar(){
 
     if (pos >= 0) {
         x = ProdArch.leer(pos);
+        if(x.getDisponible()==false){
+                cout<<"El producto esta dado de baja"<<endl;
+                system("pause");
+                return;
+        }
 
     cout<<"Ingrese la nueva cantidad del producto: "<<endl;
     cin>>cantP;
@@ -178,6 +186,74 @@ void ProductoManager::Buscar(){
     else{ cout<<"El municipio no se encuentra"<<endl;}
 
 }
+void ProductoManager::ListarOrdenado() {
+    int cant = ProdArch.getCantidadRegistros();
+    Producto* Vprod = new Producto[cant];
+    if (Vprod == nullptr) {
+        cout << "Fallo en la creación de variable" << endl;
+        return;
+    }
+
+    // Copiar registros del archivo al array
+    ProdArch.CopiarRegVec(Vprod, cant);
+
+    // Ordenar productos por precio
+    ordenarporPrecio(Vprod, cant);
+
+    // Mostrar productos ordenados
+    for (int i = 0; i < cant; i++) {
+        Mostrar(Vprod[i]);
+        cout << "-------------------------------" << endl;
+    }
+
+    delete[] Vprod;
+}
+
+
+void ProductoManager::ordenarporPrecio(Producto* v, int cant) {
+    int i, j, posmin;
+    Producto AUX;
+    for (i = 0; i < cant - 1; i++) {
+        posmin = i;
+        for (j = i + 1; j < cant; j++) {
+            if (v[j].getPrecio() < v[posmin].getPrecio()) {
+                posmin = j;
+            }
+        }
+        if (posmin != i) {
+            AUX = v[i];
+            v[i] = v[posmin];
+            v[posmin] = AUX;
+        }
+    }
+}
+
+ void ProductoManager::copiaSeguridad(){
+    bool hacercopia;
+    cout<<"¿Realmente quiere realizar una copia de seguridad? 1 - SI / 0 - NO"<<endl;
+    cin>>hacercopia;
+    if(hacercopia){
+        if(ProdArch.realizarCopia("Productos.bkp")){
+            cout<<"La copia de seguridad se ha realizado con exito"<<endl;
+        }
+        else cout<<"No se pudo realizar la copia de seguridad"<<endl;
+    }
+    else cout<<"No se ha realizado la copia"<<endl;
+}
+
+void ProductoManager::restaurarCopiaSeguridad(){
+    bool restcopia;
+    cout<<"¿Realmente quiere restaurar la copia de seguridad? 1 - SI / 0 - NO"<<endl;
+    cin>>restcopia;
+    if(restcopia){
+        if(ProdArch.restaurarCopia("Productos.bkp")){
+            cout<<"La copia de seguridad se ha restaurado con exito"<<endl;
+        }
+        else cout<<"No se pudo restaurar la copia de seguridad"<<endl;
+    }
+    else cout<<"No se ha restaurado la copia"<<endl;
+
+}
 
 void ProductoManager::Menu(){
     int Opcion;
@@ -188,7 +264,10 @@ void ProductoManager::Menu(){
         cout<<"2 - DAR DE BAJA PRODUCTO"<<endl;
         cout<<"3 - LISTAR STOCK"<<endl;
         cout<<"4 - MODIFICAR CANTIDAD DEL PRODUCTO"<<endl;
-        cout<<"5 - BUSCAR PRODUCTO POR ID"<<endl; ///listar de menor precio (o si no me sale id) a mayor
+        cout<<"5 - BUSCAR PRODUCTO POR ID"<<endl;
+        cout<<"6 - LISTAR PRODUCTOS DE MENOR A MAYOR PRECIO"<<endl;
+        cout<<"7 - REALIZAR COPIA DE SEGURIDAD"<<endl;
+        cout<<"8 - RESTAURAR COPIA DE SEGURIDAD"<<endl;
         cout<<"0 - SALIR"<<endl;
         cin>>Opcion;
             switch(Opcion){
@@ -207,6 +286,15 @@ void ProductoManager::Menu(){
             case 5:
                 Buscar();
                 break;
+            case 6:
+                ListarOrdenado();
+                break;
+            case 7:
+                copiaSeguridad();
+                break;
+            case 8:
+                restaurarCopiaSeguridad();
+               break;
             case 0:
                 return;
                 break;

@@ -16,5 +16,10 @@ public:
     void Modificar();
     void Buscar();
 
+    void ListarOrdenado();
+    void CopiarRegVec(Producto v, int cant);
+    void ordenarporPrecio(Producto *v,int cant);
+    void copiaSeguridad();
+    void restaurarCopiaSeguridad();
 
 };

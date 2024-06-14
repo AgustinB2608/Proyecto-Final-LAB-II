@@ -19,9 +19,7 @@ public:
     bool realizarCopia(std::string filename = "Productos.bak");
     bool restaurarCopia(std::string filename = "Productos.bak");
 
-    bool ListarOrdenado();
-    void CopiarRegVec(Producto v, int cant);
-    void ordenarporhabitantes(Producto v,int cant);
+    void CopiarRegVec(Producto *v,int cant);
 
 
 
