@@ -320,3 +320,108 @@
 	"../Productos/Productos.h"
 	"../Productos/ProductosArchivo.h"
 
+1718874773 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientes.cpp
+	"Clientes.h"
+	"../Fecha/Fecha.h"
+	<cstring>
+	<iostream>
+
+1718873369 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientes.h
+	<string>
+	<cstring>
+	"../Fecha/Fecha.h"
+
+1718871457 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\fecha\fecha.h
+	<iostream>
+	<string.h>
+
+1718877172 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientesarchivo.cpp
+	"../Clientes\ClientesArchivo.h"
+
+1718877294 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientesarchivo.h
+	<string>
+	<cstdio>
+	"../Clientes\Clientes.h"
+
+1718881070 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.cpp
+	"../Clientes/ClientesManager.h"
+	"../Validaciones/ValidacionesGlobales.h"
+	<iostream>
+	<string>
+	<cstring>
+	"../Interfaz/globales.h"
+
+1718877329 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.h
+	"../Fecha/Fecha.h"
+	"../Clientes/Clientes.h"
+	"../Clientes/ClientesArchivo.h"
+
+1718875904 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\fecha\fecha.cpp
+	<iostream>
+	<cstring>
+	<string>
+	<ctime>
+	"Fecha.h"
+
+1718871457 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\main.cpp
+	<iostream>
+	"../MenuManager\MenuManager.h"
+
+1718873405 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\menumanager\menumanager.h
+	"../Productos/ProductosManager.h"
+	"../Clientes\ClientesManager.h"
+
+1718871457 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\menumanager\menumanager.cpp
+	"../MenuManager\MenuManager.h"
+	<iostream>
+
+1718871457 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productos.cpp
+	"../Productos/Productos.h"
+	<iostream>
+	<string>
+	<cstring>
+
+1718871457 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productos.h
+	<string>
+
+1718871457 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productosarchivo.cpp
+	"../Productos/ProductosArchivo.h"
+	<iostream>
+	<string>
+	<cstring>
+
+1718871457 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productosarchivo.h
+	<iostream>
+	"../Productos/Productos.h"
+
+1718871457 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productosmanager.cpp
+	"../Productos/ProductosManager.h"
+	<iostream>
+	<string>
+	<cstring>
+
+1718871457 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productosmanager.h
+	"../Productos/Productos.h"
+	"../Productos/ProductosArchivo.h"
+
+1718878380 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\validaciones\validacionesglobales.h
+	<string>
+	<regex>
+
+1718880872 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\interfaz\globales.h
+	"../Interfaz/rlutil.h"
+
+1718728555 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\interfaz\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+

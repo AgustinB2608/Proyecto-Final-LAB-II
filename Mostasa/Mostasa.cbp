@@ -17,6 +17,8 @@
 					<Add directory="C:/Users/berna/OneDrive - frgp.utn.edu.ar/Programacion/Laboratorio de Computación II/2024/Proyecto Final Mostasa Lab II/Proyecto-Final-LAB-II/Mostasa/Fecha" />
 					<Add directory="C:/Users/berna/OneDrive - frgp.utn.edu.ar/Programacion/Laboratorio de Computación II/2024/Proyecto Final Mostasa Lab II/Proyecto-Final-LAB-II/Mostasa/MenuManager" />
 					<Add directory="C:/Users/berna/OneDrive - frgp.utn.edu.ar/Programacion/Laboratorio de Computación II/2024/Proyecto Final Mostasa Lab II/Proyecto-Final-LAB-II/Mostasa/Productos" />
+					<Add directory="Productos" />
+					<Add directory="C:/Users/berna/OneDrive - frgp.utn.edu.ar/Programacion/Laboratorio de Computación II/2024/Proyecto-Final-LAB-II/Mostasa/Validaciones" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -52,6 +54,12 @@
 		</Unit>
 		<Unit filename="Fecha/Fecha.cpp" />
 		<Unit filename="Fecha/Fecha.h" />
+		<Unit filename="Interfaz/globales.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="Interfaz/rlutil.h">
+			<Option target="Release" />
+		</Unit>
 		<Unit filename="MenuManager/MenuManager.cpp" />
 		<Unit filename="MenuManager/MenuManager.h">
 			<Option target="&lt;{~None~}&gt;" />
@@ -62,6 +70,7 @@
 		<Unit filename="Productos/ProductosArchivo.h" />
 		<Unit filename="Productos/ProductosManager.cpp" />
 		<Unit filename="Productos/ProductosManager.h" />
+		<Unit filename="Validaciones/ValidacionesGlobales.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>

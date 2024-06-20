@@ -77,8 +77,6 @@ bool Fecha::ValidarFecha() {
 
 
  void Fecha::MostrarFecha(){
-     cout<<"Dia: "<<getDia()<<endl;
-     cout<<"Mes: "<<getMes()<<endl;
-     cout<<"Año: "<<getAnio()<<endl;
+     cout<<getDia()<<"/"<<getMes()<<"/"<<getAnio()<<endl;
 
  }

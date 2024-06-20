@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../ProductosManager.h"
+#include "../Productos/ProductosManager.h"
 #include "../Clientes\ClientesManager.h"
 
 class MenuManager{

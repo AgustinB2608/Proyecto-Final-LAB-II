@@ -21,7 +21,7 @@ public:
     Cliente leer(int pos);
     int getCantidadRegistros();
     bool Modificar(Cliente x, int pos);
-
+    int buscarPorDNI(const std::string& DNI);
     bool realizarCopia(std::string filename = "Clientes.bak");
     bool restaurarCopia(std::string filename = "Clientes.bak");
 };
