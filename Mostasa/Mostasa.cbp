@@ -70,6 +70,18 @@
 		<Unit filename="Productos/ProductosArchivo.h" />
 		<Unit filename="Productos/ProductosManager.cpp" />
 		<Unit filename="Productos/ProductosManager.h" />
+		<Unit filename="Reservas.cpp" />
+		<Unit filename="Reservas.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="ReservasArchivo.cpp" />
+		<Unit filename="ReservasArchivo.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="ReservasManager.cpp" />
+		<Unit filename="ReservasManager.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
 		<Unit filename="Validaciones/ValidacionesGlobales.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />

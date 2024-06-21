@@ -5,6 +5,13 @@
 using namespace std;
 
 Producto::Producto(){
+    _ID=0;
+    strcpy(_Nombre," ");
+    _Cantidad = 0;
+    strcpy(_Descripcion," ");
+    _Disponible = false;
+    _Precio = 0;
+    strcpy(_Categoria," ");
 }
 Producto::Producto(int ID, std::string Nombre, std::string Descripcion, int Cantidad, bool Disponible, float Precio, std::string Categoria){
     _ID = ID;

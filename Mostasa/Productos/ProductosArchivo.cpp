@@ -35,7 +35,7 @@ bool ProductoArchivo::guardar(Producto x){
     return grabo;
 }
 
-int ProductoArchivo::buscar(int numE){ ///BUSCA PRODUCTO POR ID
+int ProductoArchivo::buscar(int ID){ ///BUSCA PRODUCTO POR ID
     Producto x;
     int pos=0;
      if(abrirA("rb")==false){
@@ -43,13 +43,13 @@ int ProductoArchivo::buscar(int numE){ ///BUSCA PRODUCTO POR ID
         return -1;
     }
     while(fread(&x,sizeof(Producto),1,_p)){
-        if(x.getID()==numE){
+        if(x.getID()==ID){
             break;
         }
         pos++;
     }
     cerrarA();
-    if(x.getID() == numE){
+    if(x.getID() == ID){
         return pos;
     }
     else{return -1;}

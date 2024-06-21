@@ -11,7 +11,7 @@ public:
     ProductoArchivo();
     ProductoArchivo(std::string Filename);
     bool guardar(Producto x);
-    int buscar(int numE);
+    int buscar(int ID);
     Producto leer(int pos);
     int getCantidadRegistros();
     bool Modificar(Producto x,int pos);

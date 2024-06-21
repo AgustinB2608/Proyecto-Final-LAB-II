@@ -203,13 +203,13 @@
 	"../ProductosManager.h"
 	"../Clientes\ClientesManager.h"
 
-1718079197 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientes.cpp
+1718995759 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientes.cpp
 	"Clientes.h"
 	"../Fecha/Fecha.h"
 	<cstring>
 	<iostream>
 
-1718317845 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientes.h
+1718995759 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientes.h
 	<string>
 	<cstring>
 	"../Fecha/Fecha.h"
@@ -218,26 +218,28 @@
 	<iostream>
 	<string.h>
 
-1718317845 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.cpp
+1718995759 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.cpp
 	"../Clientes/ClientesManager.h"
+	"../Validaciones/ValidacionesGlobales.h"
 	<iostream>
 	<string>
 	<cstring>
+	"../Interfaz/globales.h"
 
-1718317845 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.h
+1718995759 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.h
 	"../Fecha/Fecha.h"
 	"../Clientes/Clientes.h"
 	"../Clientes/ClientesArchivo.h"
 
-1718079197 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\fecha\fecha.cpp
+1718995759 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\fecha\fecha.cpp
 	<iostream>
 	<cstring>
 	<string>
 	<ctime>
 	"Fecha.h"
 
-1718079197 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\menumanager\menumanager.h
-	"../ProductosManager.h"
+1719002063 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\menumanager\menumanager.h
+	"../Productos/ProductosManager.h"
 	"../Clientes\ClientesManager.h"
 
 1718079197 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\menumanager\menumanager.cpp
@@ -282,16 +284,15 @@
 	"../Productos/Productos.h"
 	"../Productos/ProductosArchivo.h"
 
-1718317845 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientesarchivo.cpp
+1718995759 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientesarchivo.cpp
 	"../Clientes\ClientesArchivo.h"
-	<iostream>
 
-1718317845 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientesarchivo.h
+1718995759 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientesarchivo.h
 	<string>
 	<cstdio>
 	"../Clientes\Clientes.h"
 
-1718325377 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productos.cpp
+1718998423 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productos.cpp
 	"../Productos/Productos.h"
 	<iostream>
 	<string>
@@ -300,13 +301,13 @@
 1718325422 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productos.h
 	<string>
 
-1718324920 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productosarchivo.cpp
+1719001203 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productosarchivo.cpp
 	"../Productos/ProductosArchivo.h"
 	<iostream>
 	<string>
 	<cstring>
 
-1718324929 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productosarchivo.h
+1719001211 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productosarchivo.h
 	<iostream>
 	"../Productos/Productos.h"
 
@@ -424,4 +425,53 @@
 	<sys/ioctl.h>
 	<sys/types.h>
 	<sys/time.h>
+
+1718995759 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\validaciones\validacionesglobales.h
+	<string>
+	<regex>
+
+1718995759 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\interfaz\globales.h
+	"../Interfaz/rlutil.h"
+
+1718995759 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\interfaz\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
+
+1719000551 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas.cpp
+	"Reservas.h"
+
+1718998626 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas.h
+	<iostream>
+	<string>
+	"Fecha.h"
+
+1719001450 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservasarchivo.cpp
+	"ReservasArchivo.h"
+	<iostream>
+	<string>
+	<cstring>
+
+1719001828 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservasmanager.cpp
+	"ReservasManager.h"
+	<iostream>
+	<string>
+	<cstring>
+
+1719001654 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservasarchivo.h
+	<iostream>
+	"Reservas.h"
+
+1719001783 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservasmanager.h
+	"Reservas.h"
+	"ReservasArchivo.h"
 
