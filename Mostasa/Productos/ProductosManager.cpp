@@ -180,10 +180,10 @@ void ProductoManager::Buscar(){
         if (x.getDisponible()){
         Mostrar(x);
         }
-        else{ cout<<"El municipio está dado de baja"<<endl;}
+        else{ cout<<"El producto esta dado de baja"<<endl;}
 
     }
-    else{ cout<<"El municipio no se encuentra"<<endl;}
+    else{ cout<<"El producto no se encuentra"<<endl;}
 
 }
 void ProductoManager::ListarOrdenado() {

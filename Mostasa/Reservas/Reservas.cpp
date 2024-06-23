@@ -24,7 +24,7 @@ void Reserva::setNumero(int Numero){
     if(Numero>=1 && Numero<=35){
         _Numero = Numero;
 }
-else _Numero =-1;
+    else _Numero =-1;
 }
 void Reserva::setFecha(Fecha Fecha){
     _Fecha = Fecha;
@@ -33,7 +33,7 @@ void Reserva::setNumeroMesa(int NumeroMesa){
     if(NumeroMesa>=1 && NumeroMesa<=50){
         _NumeroMesa = NumeroMesa;
     }
-    _NumeroMesa = -1;
+    else _NumeroMesa = -1;
 }
 void Reserva::setNumeroPersonas(int NumeroPersonas){
     if(NumeroPersonas>=1 && NumeroPersonas<=12){
@@ -42,7 +42,7 @@ void Reserva::setNumeroPersonas(int NumeroPersonas){
     else _NumeroPersonas = -1;
 }
 void Reserva::setIDCliente(int IDCliente){ ///Aca habría que verificar que el IDCliente existe en el archivo de clientes, pero no se haría dentro del set creo yo, esa verificacion hay que hacerla antes, CUANDO SE PIDA EL ID CLIENTE EN LA CARGA
-        _IDCliente = IDCliente;
+     _IDCliente = IDCliente;
 }
 void Reserva::setIDProducto(int IDProducto){
     _IDProducto = IDProducto;
