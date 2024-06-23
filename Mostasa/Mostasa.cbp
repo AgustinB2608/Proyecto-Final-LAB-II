@@ -19,6 +19,8 @@
 					<Add directory="C:/Users/berna/OneDrive - frgp.utn.edu.ar/Programacion/Laboratorio de Computación II/2024/Proyecto Final Mostasa Lab II/Proyecto-Final-LAB-II/Mostasa/Productos" />
 					<Add directory="Productos" />
 					<Add directory="C:/Users/berna/OneDrive - frgp.utn.edu.ar/Programacion/Laboratorio de Computación II/2024/Proyecto-Final-LAB-II/Mostasa/Validaciones" />
+					<Add directory="C:/Users/berna/OneDrive - frgp.utn.edu.ar/Programacion/Laboratorio de Computación II/2024/Proyecto-Final-LAB-II/Mostasa/Funciones" />
+					<Add directory="C:/Users/berna/OneDrive - frgp.utn.edu.ar/Programacion/Laboratorio de Computación II/2024/Proyecto-Final-LAB-II/Mostasa/Reservas" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -54,12 +56,9 @@
 		</Unit>
 		<Unit filename="Fecha/Fecha.cpp" />
 		<Unit filename="Fecha/Fecha.h" />
-		<Unit filename="Interfaz/globales.h">
-			<Option target="Release" />
-		</Unit>
-		<Unit filename="Interfaz/rlutil.h">
-			<Option target="Release" />
-		</Unit>
+		<Unit filename="Funciones/FuncionesGraficas/globales.h" />
+		<Unit filename="Funciones/FuncionesGraficas/rlutil.h" />
+		<Unit filename="Funciones/ValidacionesGlobales.h" />
 		<Unit filename="MenuManager/MenuManager.cpp" />
 		<Unit filename="MenuManager/MenuManager.h">
 			<Option target="&lt;{~None~}&gt;" />
@@ -70,19 +69,12 @@
 		<Unit filename="Productos/ProductosArchivo.h" />
 		<Unit filename="Productos/ProductosManager.cpp" />
 		<Unit filename="Productos/ProductosManager.h" />
-		<Unit filename="Reservas.cpp" />
-		<Unit filename="Reservas.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="ReservasArchivo.cpp" />
-		<Unit filename="ReservasArchivo.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="ReservasManager.cpp" />
-		<Unit filename="ReservasManager.h">
-			<Option target="&lt;{~None~}&gt;" />
-		</Unit>
-		<Unit filename="Validaciones/ValidacionesGlobales.h" />
+		<Unit filename="Reservas/Reservas.cpp" />
+		<Unit filename="Reservas/Reservas.h" />
+		<Unit filename="Reservas/ReservasArchivo.cpp" />
+		<Unit filename="Reservas/ReservasArchivo.h" />
+		<Unit filename="Reservas/ReservasManager.cpp" />
+		<Unit filename="Reservas/ReservasManager.h" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>

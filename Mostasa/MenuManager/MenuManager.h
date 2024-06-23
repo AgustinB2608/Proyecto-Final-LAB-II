@@ -2,20 +2,14 @@
 
 #include "../Productos/ProductosManager.h"
 #include "../Clientes\ClientesManager.h"
-
-//NO SUPE COMO AGREGAR EL INCLUDE DE RESERVASMANAGER :(
+#include "../Reservas/ReservasManager.h"
 
 class MenuManager{
 
 private:
     ProductoManager ProdManager;
     ClienteManager ClientManager;
-
-
-
+    ReservaManager ReservaManager;
 public:
     void menu();
-
-
-
 };

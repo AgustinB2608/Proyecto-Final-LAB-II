@@ -1,11 +1,11 @@
 #include "../Clientes/ClientesManager.h"
-#include "../Validaciones/ValidacionesGlobales.h"
+#include "../Funciones/ValidacionesGlobales.h"
 #include <iostream>
 #include <string>
 #include <cstring>
 
 using namespace std;
-#include "../Interfaz/globales.h"
+#include "../Funciones\FuncionesGraficas\globales.h"
 
 
 Cliente ClienteManager::Crear() {
@@ -13,12 +13,20 @@ Cliente ClienteManager::Crear() {
     std::string Nombre, Email, Telefono, DNI;
     Fecha fecha;
     Cliente cliente;
-
+    int Y = 1;
+    int X = ObtenerPosicionXCentro("|--------------------------------------|");
+    int X2 = ObtenerCentroConsola();
+    DibujarTitulo("- DATOS DEL CLIENTE NUEVO -");
+    RecuadroDatos(X,Y+1,'-','|');
     do {
-        std::cout << "Ingrese ID: " << std::endl;
+        MostrarOpcionMenu("Ingresar el ID:", Y);
+        rlutil::locate(X2,Y+3);
         std::cin >> ID;
+        if (ClienteArc.buscar(ID) > -1) {
+            std::cout << "Ya existe un cliente con ese ID" << std::endl;
+        }
         cliente.setIDCliente(ID);
-    } while (cliente.getIDCliente() == -1); //Valido mientras no sea negativo ni supere los limites.
+    } while (cliente.getIDCliente() == -1 || ClienteArc.buscar(ID) > -1);
 
     std::cin.ignore();
 
@@ -96,7 +104,7 @@ void ClienteManager::Listar() {
     }
 }
 
-void ClienteManager::Mostrar(Cliente C) {
+void ClienteManager::MostrarALL(Cliente C) {
     if (C.getActivo()) {
         cout << "ID: " << C.getIDCliente() << endl;
         cout << "Nombre: " << C.getNombreCliente() << endl;
@@ -107,6 +115,36 @@ void ClienteManager::Mostrar(Cliente C) {
         C.getFechaCreacion().MostrarFecha();
         cout << "Activo: " << (C.getActivo() ? "Si" : "No") << endl;
         cout << "-----------------------------" << endl;
+    }
+}
+void ClienteManager::Mostrar(Cliente C) {
+    if (C.getActivo()) {
+        int X = ObtenerCentroConsola()- 12;
+        int Y = 4;
+
+        int XX = ObtenerPosicionXCentro("MOSTRANDO CLIENTE ID: ");
+        rlutil::locate(XX,3);
+        cout<<"MOSTRANDO CLIENTE ID: "<< C.getIDCliente()<<endl;
+
+        rlutil::locate(X,Y+1);
+        cout << "-----------------------------" << endl;
+        rlutil::locate(X,Y+2);
+        cout << "Nombre: " << C.getNombreCliente() << endl;
+        rlutil::locate(X,Y+4);
+        cout << "Email: " << C.getEmailCliente() << endl;
+        rlutil::locate(X,Y+6);
+        cout << "Telefono: " << C.getTelefonoCliente() << endl;
+        rlutil::locate(X,Y+8);
+        cout << "DNI: " << C.getDNICliente() << endl;
+        rlutil::locate(X,Y+10);
+        cout << "Fecha de Registro: ";
+        rlutil::locate(X,Y+12);
+        C.getFechaCreacion().MostrarFecha();
+        rlutil::locate(X,Y+14);
+        cout << "Activo: " << (C.getActivo() ? "Si" : "No") << endl;
+        rlutil::locate(X,Y+15);
+        cout << "-----------------------------" << endl;
+
     }
 }
 
@@ -159,42 +197,137 @@ void ClienteManager::Modificar() {
 void ClienteManager::Buscar() {
     int pos, ID;
     Cliente C;
-    cout << "Ingresar el ID: " << endl;
+    rlutil::hidecursor();
+    int X = ObtenerPosicionXCentro("BUSQUEDA POR ID");
+    int X2 = ObtenerPosicionXCentro("Ingrese el ID del Cliente.");
+    int X3 = ObtenerCentroConsola();
+    int X4 = ObtenerPosicionXCentro("ID Dado de baja");
+    int X5 = ObtenerPosicionXCentro("No se encontro el ID");
+    rlutil::locate(X,1);
+    cout<<"BUSQUEDA POR ID";
+    rlutil::locate(X2,3);
+    cout << "Ingrese el ID del Cliente." << endl;
+    rlutil::locate(X3,5);
     cin >> ID;
+    rlutil::cls();
     pos = ClienteArc.buscar(ID);
     if (pos >= 0) {
         C = ClienteArc.leer(pos);
         if (C.getActivo()) {
             Mostrar(C);
         } else {
-            cout << "Dado de baja" << endl;
+            rlutil::locate(X4,3);
+            cout << "ID Dado de baja" << endl;
         }
     } else {
-        cout << "No se encuentra" << endl;
+        rlutil::locate(X5,3);
+        cout << "No se encontro el ID" << endl;
     }
+    int XX = ObtenerPosicionXCentro("Presione cualquier tecla para volver al Menu Principal.");
+    rlutil::locate(XX,29);
+    cout << "Presione cualquier tecla para volver al Menu Principal.";
+    rlutil::anykey();
 }
 
 void ClienteManager::BuscarPorDNI() {
     std::string DNI;
     int pos;
     Cliente C;
-
-    cout << "Ingresar el DNI: ";
+    rlutil::hidecursor();
+    int X = ObtenerPosicionXCentro("BUSQUEDA POR DNI");
+    int X1 = ObtenerPosicionXCentro("XXXXXXXX");
+    int X2 = ObtenerPosicionXCentro("Ingrese el DNI del Cliente.");
+    int X3 = ObtenerPosicionXCentro("El DNI XXXXXXXX Coincide con el ID: ");
+    int X4 = ObtenerPosicionXCentro("Cliente encontrado pero dado de baja");
+    int X5 = ObtenerPosicionXCentro("No se encontró ningun cliente con ese DNI");
+    rlutil::locate(X,1);
+    cout<<"BUSQUEDA POR DNI";
+    rlutil::locate(X2,3);
+    cout << "Ingrese el DNI del Cliente.";
+    rlutil::locate(X1-2,5);
+    cout <<(char)175;
+    rlutil::locate(X1+9,5);
+    cout <<(char)174;
+    rlutil::locate(X1,5);
     cin >> DNI;
-
     pos = ClienteArc.buscarPorDNI(DNI);
-
     if (pos >= 0) {
         C = ClienteArc.leer(pos);
         if (C.getActivo()) {
-            cout << "El DNI ingresado coincide con el Cliente ID: " << C.getIDCliente() << endl;
+            rlutil::locate(X3,3);
+            cout << "El DNI "<<DNI<<" Coincide con el ID: "<<C.getIDCliente() << endl;
         } else {
+            rlutil::locate(X4,3);
             cout << "Cliente encontrado pero dado de baja" << endl;
         }
     } else {
-        cout << "No se encontró ningún cliente con ese DNI" << endl;
+        rlutil::locate(X5,3);
+        cout << "No se encontro ningun cliente con ese DNI" << endl;
     }
+
+    int XX = ObtenerPosicionXCentro("Presione cualquier tecla para volver al Menu Principal.");
+    rlutil::locate(XX,29);
+    cout << "Presione cualquier tecla para volver al Menu Principal.";
+    rlutil::anykey();
 }
+
+void ClienteManager::CopiaSeguridad() {
+    char opcion;
+    int X = ObtenerPosicionXCentro("Realmente quiere realizar una copia de seguridad? Presione S/Si o N/No");
+    int X1 = ObtenerPosicionXCentro("La copia de seguridad se ha realizado con exito.");
+    int X2 = ObtenerPosicionXCentro("No se pudo realizar la copia de seguridad.");
+    int X3 = ObtenerPosicionXCentro("No se ha realizado la copia.");
+    rlutil::locate(X,2);
+    std::cout << "Realmente quiere realizar una copia de seguridad? Presione S/Si o N/No" << std::endl;
+    do {
+        opcion = rlutil::getkey();
+        opcion = toupper(opcion); // Convertir a mayúsculas para facilitar la comparación
+    } while (opcion != 'S' && opcion != 'N');
+    rlutil::cls();
+    if (opcion == 'S') {
+        if (ClienteArc.realizarCopia("Clientes.bkp")) {
+                rlutil::locate(X1,2);
+            std::cout << "La copia de seguridad se ha realizado con exito." << std::endl;
+        } else {
+            rlutil::locate(X2,2);
+            std::cout << "No se pudo realizar la copia de seguridad." << std::endl;
+        }
+    } else {
+        rlutil::locate(X3,2);
+        std::cout << "No se ha realizado la copia." << std::endl;
+    }
+    rlutil::anykey(); // Esperar a que se presione cualquier tecla para continuar
+    rlutil::cls();    // Limpiar la pantalla nuevamente si es necesario
+}
+void ClienteManager::RestaurarCopiaSeguridad() {
+    char opcion;
+    int X = ObtenerPosicionXCentro("Realmente quiere restaurar la copia de seguridad? Presione S/Si o N/No");
+    int X1 = ObtenerPosicionXCentro("La copia de seguridad se ha restaurado con exito.");
+    int X2 = ObtenerPosicionXCentro("No se pudo restaurar la copia de seguridad.");
+    int X3 = ObtenerPosicionXCentro("No se ha restaurado la copia.");
+    rlutil::locate(X,2);
+    std::cout << "Realmente quiere restaurar la copia de seguridad? Presione S/Si o N/No" << std::endl;
+    do {
+        opcion = rlutil::getkey();
+        opcion = toupper(opcion);
+    } while (opcion != 'S' && opcion != 'N');
+    rlutil::cls();
+    if (opcion == 'S') {
+        if (ClienteArc.restaurarCopia("Clientes.bkp")) {
+            rlutil::locate(X1,2);
+            std::cout << "La copia de seguridad se ha restaurado con exito." << std::endl;
+        } else {
+            rlutil::locate(X2,2);
+            std::cout << "No se pudo restaurar la copia de seguridad." << std::endl;
+        }
+    } else {
+        rlutil::locate(X3,2);
+        std::cout << "No se ha restaurado la copia." << std::endl;
+    }
+    rlutil::anykey();
+    rlutil::cls();
+}
+
 
 void ClienteManager::Menu() {
     int opcion = 1;
@@ -248,11 +381,11 @@ void ClienteManager::Menu() {
                         break;
                     case 7:
                         rlutil::cls();
-                        //Opcion7();
+                        CopiaSeguridad();
                         break;
                     case 8:
                         rlutil::cls();
-                        //Opcion8();
+                        RestaurarCopiaSeguridad();
                         break;
                     case 9:
                         rlutil::cls();

@@ -332,51 +332,53 @@
 	<cstring>
 	"../Fecha/Fecha.h"
 
-1718871457 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\fecha\fecha.h
+1719047838 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\fecha\fecha.h
 	<iostream>
 	<string.h>
 
-1718877172 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientesarchivo.cpp
+1719099115 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientesarchivo.cpp
 	"../Clientes\ClientesArchivo.h"
 
-1718877294 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientesarchivo.h
+1719099178 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientesarchivo.h
 	<string>
 	<cstdio>
 	"../Clientes\Clientes.h"
 
-1718881070 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.cpp
+1719104299 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.cpp
 	"../Clientes/ClientesManager.h"
-	"../Validaciones/ValidacionesGlobales.h"
+	"../Funciones/ValidacionesGlobales.h"
 	<iostream>
 	<string>
 	<cstring>
-	"../Interfaz/globales.h"
+	"../Funciones\FuncionesGraficas\globales.h"
 
-1718877329 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.h
+1719103350 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.h
 	"../Fecha/Fecha.h"
 	"../Clientes/Clientes.h"
 	"../Clientes/ClientesArchivo.h"
 
-1718875904 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\fecha\fecha.cpp
+1719047748 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\fecha\fecha.cpp
 	<iostream>
 	<cstring>
 	<string>
 	<ctime>
 	"Fecha.h"
 
-1718871457 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\main.cpp
+1719104276 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\main.cpp
 	<iostream>
 	"../MenuManager\MenuManager.h"
+	"../Clientes/Clientes.h"
 
-1718873405 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\menumanager\menumanager.h
+1719046141 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\menumanager\menumanager.h
 	"../Productos/ProductosManager.h"
 	"../Clientes\ClientesManager.h"
+	"../Reservas/ReservasManager.h"
 
-1718871457 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\menumanager\menumanager.cpp
+1719046141 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\menumanager\menumanager.cpp
 	"../MenuManager\MenuManager.h"
 	<iostream>
 
-1718871457 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productos.cpp
+1719044505 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productos.cpp
 	"../Productos/Productos.h"
 	<iostream>
 	<string>
@@ -385,13 +387,13 @@
 1718871457 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productos.h
 	<string>
 
-1718871457 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productosarchivo.cpp
+1719044505 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productosarchivo.cpp
 	"../Productos/ProductosArchivo.h"
 	<iostream>
 	<string>
 	<cstring>
 
-1718871457 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productosarchivo.h
+1719044505 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productosarchivo.h
 	<iostream>
 	"../Productos/Productos.h"
 
@@ -474,4 +476,53 @@
 1719001783 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservasmanager.h
 	"Reservas.h"
 	"ReservasArchivo.h"
+
+1719046245 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\reservas\reservasmanager.h
+	"../Reservas/Reservas.h"
+	"../Reservas/ReservasArchivo.h"
+
+1719046245 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\reservas\reservas.h
+	<iostream>
+	<string>
+	"../Fecha/Fecha.h"
+
+1719046245 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\reservas\reservasarchivo.h
+	<iostream>
+	"../Reservas/Reservas.h"
+
+1719044505 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\reservas\reservas.cpp
+	"Reservas.h"
+
+1719044505 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\reservas\reservasarchivo.cpp
+	"ReservasArchivo.h"
+	<iostream>
+	<string>
+	<cstring>
+
+1719044505 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\reservas\reservasmanager.cpp
+	"ReservasManager.h"
+	<iostream>
+	<string>
+	<cstring>
+
+1719048609 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\funciones\validacionesglobales.h
+	<string>
+	<regex>
+
+1719101312 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\funciones\funcionesgraficas\globales.h
+	"../Funciones\FuncionesGraficas\rlutil.h"
+
+1718728555 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\funciones\funcionesgraficas\rlutil.h
+	<iostream>
+	<string>
+	<cstdio>
+	<stdio.h>
+	<string.h>
+	<windows.h>
+	<conio.h>
+	<termios.h>
+	<unistd.h>
+	<sys/ioctl.h>
+	<sys/types.h>
+	<sys/time.h>
 

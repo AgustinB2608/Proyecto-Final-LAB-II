@@ -16,10 +16,13 @@ public:
     void Cargar();
     void ListarClientes();
     void Mostrar(Cliente x);
+    void MostrarALL(Cliente x);
     void Modificar();
     void Buscar();
     void Listar();
     void BuscarPorDNI();
+    void CopiaSeguridad();
+    void RestaurarCopiaSeguridad();
 
 
 

@@ -31,7 +31,7 @@ void MenuManager::menu(){
             ClientManager.Menu();
             break;
         case 3:
-
+            ReservaManager.Menu();
             break;
         case 4:
 

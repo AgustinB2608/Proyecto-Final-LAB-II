@@ -111,39 +111,53 @@ bool ClienteArchivo::Modificar(Cliente x, int pos) {
     return guardado;
 }
 
-bool ClienteArchivo::realizarCopia(std::string filename) {
-    FILE *pBak;
+bool ClienteArchivo::realizarCopia(const std::string& filename) {
+    FILE* pBak;
     Cliente x;
 
+    // Abre el archivo de copia de seguridad en modo escritura binaria
     pBak = fopen(filename.c_str(), "wb");
     if (pBak == nullptr) {
         std::cerr << "No se pudo crear la copia de seguridad: " << filename << std::endl;
         return false;
     }
 
-    int cantreg = getCantidadRegistros();
+    int cantreg = getCantidadRegistros(); // Obtiene la cantidad de registros de clientes
     for (int i = 0; i < cantreg; i++) {
-        x = leer(i);
-        fwrite(&x, sizeof(Cliente), 1, pBak);
+        x = leer(i); // Lee el cliente en la posición i
+        if (fwrite(&x, sizeof(Cliente), 1, pBak) != 1) {
+            std::cerr << "Error al escribir en la copia de seguridad." << std::endl;
+            fclose(pBak);
+            return false;
+        }
     }
-    fclose(pBak);
+
+    fclose(pBak); // Cierra el archivo de copia de seguridad
     return true;
 }
 
-bool ClienteArchivo::restaurarCopia(std::string filename) {
-    Cliente x;
-    ClienteArchivo archibak(filename.c_str());
 
+bool ClienteArchivo::restaurarCopia(const std::string& filename) {
+    Cliente x;
+    ClienteArchivo archibak(filename.c_str()); // Crea una instancia para manejar el archivo de copia
+
+    // Abre el archivo principal en modo escritura binaria
     if (!abrirA("wb")) {
-        std::cerr << "No se pudo abrir el archivo para restaurar" << std::endl;
+        std::cerr << "No se pudo abrir el archivo principal para restaurar." << std::endl;
         return false;
     }
 
-    int cantreg = archibak.getCantidadRegistros();
+    int cantreg = archibak.getCantidadRegistros(); // Obtiene la cantidad de registros en la copia
     for (int i = 0; i < cantreg; i++) {
-        x = archibak.leer(i);
-        fwrite(&x, sizeof(Cliente), 1, _p);
+        x = archibak.leer(i); // Lee el cliente en la posición i de la copia
+        if (fwrite(&x, sizeof(Cliente), 1, _p) != 1) {
+            std::cerr << "Error al escribir en el archivo." << std::endl;
+            cerrarA();
+            return false;
+        }
     }
-    cerrarA();
+
+    cerrarA(); // Cierra el archivo principal
     return true;
 }
+
