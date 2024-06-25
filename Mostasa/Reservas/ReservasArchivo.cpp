@@ -117,3 +117,53 @@ int ReservaArchivo::getCantidadRegistros(){
     return cantreg;
 
 }
+
+bool ReservaArchivo::realizarCopia(const std::string& filename) {
+    FILE* pBak;
+    Reserva x;
+
+    // Abre el archivo de copia de seguridad en modo escritura
+    pBak = fopen(filename.c_str(), "wb");
+    if (pBak == nullptr) {
+        std::cerr << "No se pudo crear la copia de seguridad: " << filename << std::endl;
+        return false;
+    }
+
+    int cantreg = getCantidadRegistros();
+    for (int i = 0; i < cantreg; i++) {
+        x = leer(i);
+        if (fwrite(&x, sizeof(Reserva), 1, pBak) != 1) {
+            std::cerr << "Error al escribir en la copia de seguridad." << std::endl;
+            fclose(pBak);
+            return false;
+        }
+    }
+
+    fclose(pBak); // Cierra el archivo de copia de seguridad
+    return true;
+}
+
+
+bool ReservaArchivo::restaurarCopia(const std::string& filename) {
+    Reserva x;
+    ReservaArchivo archibak(filename.c_str());
+
+    // Abre el archivo principal en modo escritura binaria
+    if (!abrirA("wb")) {
+        std::cerr << "No se pudo abrir el archivo principal para restaurar." << std::endl;
+        return false;
+    }
+
+    int cantreg = archibak.getCantidadRegistros();
+    for (int i = 0; i < cantreg; i++) {
+        x = archibak.leer(i);
+        if (fwrite(&x, sizeof(Reserva), 1, _p) != 1) {
+            std::cerr << "Error al escribir en el archivo." << std::endl;
+            cerrarA();
+            return false;
+        }
+    }
+
+    cerrarA(); // Cierra el archivo principal
+    return true;
+}

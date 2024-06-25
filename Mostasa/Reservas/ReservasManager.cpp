@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include "../Funciones\FuncionesGraficas\globales.h"
 using namespace std;
     Reserva ReservaManager::Crear(){
     int Numero, NumeroMesa, NumeroPersonas, IDCliente, IDProducto;
@@ -40,7 +41,7 @@ using namespace std;
 
     cout<<"Ingrese Fecha de la reserva: "<<endl; ///no lo puse en el informe pero tambien podriamos hacer una validacion, buscar si para esa fecha hay mesas disponibles
     ///de hecho voy a hacer que en la funcion de buscar mesas disponibles se tenga que ingresar una fecha y buscar en esa fecha las mesas, así lo podemos usar acá
-    fecha.CargarFecha();
+    fecha.CargarFecha(true);
     Res.setFecha(fecha);
 
     Res.setEstado(true);
@@ -109,7 +110,7 @@ void ReservaManager::Buscar(){
     Fecha fecha;
     Reserva x;
     cout<<"Ingrese el fecha de la reserva a buscar: "<<endl;
-    fecha.CargarFecha();
+    fecha.CargarFecha(false);
     pos = ResArch.buscar(fecha);
     if(pos>=0){
         x=ResArch.leer(pos);
@@ -122,6 +123,63 @@ void ReservaManager::Buscar(){
     else{ cout<<"la reserva no se encuentra"<<endl;}
 
 }
+void ReservaManager::CopiaSeguridad() {
+    char opcion;
+    int X = ObtenerPosicionXCentro("Realmente quiere realizar una copia de seguridad? Presione S/Si o N/No");
+    int X1 = ObtenerPosicionXCentro("La copia de seguridad se ha realizado con exito.");
+    int X2 = ObtenerPosicionXCentro("No se pudo realizar la copia de seguridad.");
+    int X3 = ObtenerPosicionXCentro("No se ha realizado la copia.");
+    rlutil::locate(X,2);
+    std::cout << "Realmente quiere realizar una copia de seguridad? Presione S/Si o N/No" << std::endl;
+    do {
+        opcion = rlutil::getkey();
+        opcion = toupper(opcion); // Convertir a mayúsculas para facilitar la comparación
+    } while (opcion != 'S' && opcion != 'N');
+    rlutil::cls();
+    if (opcion == 'S') {
+        if (ResArch.realizarCopia("Reservas.bak")) {
+                rlutil::locate(X1,2);
+            std::cout << "La copia de seguridad se ha realizado con exito." << std::endl;
+        } else {
+            rlutil::locate(X2,2);
+            std::cout << "No se pudo realizar la copia de seguridad." << std::endl;
+        }
+    } else {
+        rlutil::locate(X3,2);
+        std::cout << "No se ha realizado la copia." << std::endl;
+    }
+    rlutil::anykey(); // Esperar a que se presione cualquier tecla para continuar
+    rlutil::cls();    // Limpiar la pantalla nuevamente si es necesario
+}
+void ReservaManager::RestaurarCopiaSeguridad() {
+    char opcion;
+    int X = ObtenerPosicionXCentro("Realmente quiere restaurar la copia de seguridad? Presione S/Si o N/No");
+    int X1 = ObtenerPosicionXCentro("La copia de seguridad se ha restaurado con exito.");
+    int X2 = ObtenerPosicionXCentro("No se pudo restaurar la copia de seguridad.");
+    int X3 = ObtenerPosicionXCentro("No se ha restaurado la copia.");
+    rlutil::locate(X,2);
+    std::cout << "Realmente quiere restaurar la copia de seguridad? Presione S/Si o N/No" << std::endl;
+    do {
+        opcion = rlutil::getkey();
+        opcion = toupper(opcion);
+    } while (opcion != 'S' && opcion != 'N');
+    rlutil::cls();
+    if (opcion == 'S') {
+        if (ResArch.restaurarCopia("Reservas.bak")) {
+            rlutil::locate(X1,2);
+            std::cout << "La copia de seguridad se ha restaurado con exito." << std::endl;
+        } else {
+            rlutil::locate(X2,2);
+            std::cout << "No se pudo restaurar la copia de seguridad." << std::endl;
+        }
+    } else {
+        rlutil::locate(X3,2);
+        std::cout << "No se ha restaurado la copia." << std::endl;
+    }
+    rlutil::anykey();
+    rlutil::cls();
+}
+
 void ReservaManager::Menu(){
     int Opcion;
     while(true){
@@ -130,11 +188,11 @@ void ReservaManager::Menu(){
         cout<<"1 - CARGAR RESERVA"<<endl;
         cout<<"2 - DAR DE BAJA RESERVA"<<endl;
         cout<<"3 - LISTAR RESERVAS"<<endl;
+        cout<<"x - REALIZAR COPIA DE SEGURUIDAD"<<endl;
+        cout<<"x - RESTAURAR COPIA DE SEGURIDAD"<<endl;
         // modificar
         cout<<"5 - BUSCAR RESERVA POR FECHA"<<endl;
         //listar mesas disponibles (no reservadas).  Esto dejamelo porfis que quiero intentar algo
-        ///7 - REALIZAR COPIA
-        ///8 - RESTAURAR COPIA
         cout<<"0 - SALIR"<<endl;
         cin>>Opcion;
             switch(Opcion){
@@ -153,8 +211,10 @@ void ReservaManager::Menu(){
                 Buscar();
                 break;
             case 6:
+                CopiaSeguridad();
                 break;
             case 7:
+                RestaurarCopiaSeguridad();
                 break;
             case 8:
                 break;

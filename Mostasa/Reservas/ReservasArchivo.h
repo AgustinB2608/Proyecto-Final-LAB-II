@@ -18,8 +18,9 @@ public:
     int getCantidadRegistros();
     bool Modificar(Reserva x,int pos);
 
-    bool realizarCopia(std::string filename = "Reservas.bak");
-    bool restaurarCopia(std::string filename = "Reservas.bak");
+    bool realizarCopia(const std::string& filename = "Reservas.bak");
+    bool restaurarCopia(const std::string& filename = "Reservas.bak");
+
 
 
 

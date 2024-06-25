@@ -1,8 +1,8 @@
 #include <iostream>
-#include <cstring>
-#include <string>
 #include <ctime>
 #include "Fecha.h"
+#include "../Funciones\ValidacionesGlobales.h"
+
 using namespace std;
 
 Fecha::Fecha(int dia, int mes, int anio) : _dia(dia), _mes(mes), _anio(anio) {}
@@ -12,7 +12,7 @@ int Fecha::getMes() const { return _mes; }
 int Fecha::getAnio() const { return _anio; }
 
 void Fecha::setDia(int dia) {
-    if(dia > 0 && dia < 32) {
+    if (dia > 0 && dia < 32) {
         _dia = dia;
     } else {
         cout << "Dia ingresado no valido" << endl;
@@ -20,7 +20,7 @@ void Fecha::setDia(int dia) {
 }
 
 void Fecha::setMes(int mes) {
-    if(mes > 0 && mes < 13) {
+    if (mes > 0 && mes < 13) {
         _mes = mes;
     } else {
         cout << "Mes ingresado no valido" << endl;
@@ -28,14 +28,14 @@ void Fecha::setMes(int mes) {
 }
 
 void Fecha::setAnio(int anio) {
-    if(anio > 1899 && anio < 2025) {
+    if (anio > 1899 && anio < 2025) {
         _anio = anio;
     } else {
         cout << "Anio ingresado no valido" << endl;
     }
 }
 
-void Fecha::CargarFecha() {
+void Fecha::CargarFecha(bool esReserva) {
     bool fechaValida = false;
     while (!fechaValida) {
         cout << "Dia: ";
@@ -45,36 +45,38 @@ void Fecha::CargarFecha() {
         cout << "Anio: ";
         cin >> _anio;
 
-        if (ValidarFecha()) {
+        if (ValidarFecha() && (!esReserva || FechaPosteriorMinimoDosDias(*this))) {
             fechaValida = true;
         } else {
-            cout << "La fecha ingresada no es valida. Por favor, ingrese una fecha valida." << endl;
+            cout << "La fecha ingresada no es valida";
+            if (esReserva) {
+                cout << " o no es al menos dos días posterior a la fecha actual.";
+            }
+            cout << " Por favor, ingrese una fecha valida." << endl;
         }
     }
 }
 
 bool Fecha::ValidarFecha() const {
-    // Obtener la fecha actual
-    time_t tiempo;
-    struct tm *tmPtr;
+    if (_anio < 1900 || _anio > 2024 || _mes < 1 || _mes > 12 || _dia < 1 || _dia > 31) {
+        return false;
+    }
 
-    tiempo = time(NULL);
-    tmPtr = localtime(&tiempo);
+    // Días máximos por mes (no considerando años bisiestos)
+    int diasMaximos[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-    // Comparar la fecha ingresada con la fecha actual
-    if (_anio < 1900 + tmPtr->tm_year) {
-        return true; // La fecha ingresada es anterior a la fecha actual
-    } else if (_anio == 1900 + tmPtr->tm_year) {
-        if (_mes < tmPtr->tm_mon + 1) {
-            return true; // La fecha ingresada es anterior al mes actual del año actual
-        } else if (_mes == tmPtr->tm_mon + 1) {
-            if (_dia <= tmPtr->tm_mday) {
-                return true; // La fecha ingresada es anterior o igual al día actual del mes actual y año actual
-            }
+    // Ajuste para años bisiestos
+    if (_mes == 2) {
+        if ((_anio % 4 == 0 && _anio % 100 != 0) || (_anio % 400 == 0)) {
+            diasMaximos[1] = 29;
         }
     }
 
-    return false; // La fecha ingresada no es válida
+    if (_dia > diasMaximos[_mes - 1]) {
+        return false;
+    }
+
+    return true;
 }
 
 void Fecha::MostrarFecha() const {

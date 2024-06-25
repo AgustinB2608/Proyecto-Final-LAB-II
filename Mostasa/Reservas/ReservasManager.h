@@ -17,7 +17,8 @@ public:
     void Buscar();
 
     void ListarOrdenado();
-    void copiaSeguridad();
-    void restaurarCopiaSeguridad();
+    void CopiaSeguridad();
+    void RestaurarCopiaSeguridad();
+
 
 };

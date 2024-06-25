@@ -16,9 +16,10 @@ public:
     void Cargar();
     void ListarClientes();
     void Mostrar(Cliente x);
-    void MostrarALL(Cliente x);
+    void MostrarALL(Cliente C, int X, int &Y);
     void Modificar();
     void Buscar();
+    void OrdenarClientesPorID(Cliente* clientes, int cantreg);
     void Listar();
     void BuscarPorDNI();
     void CopiaSeguridad();

@@ -1,56 +1,63 @@
 #include "../MenuManager\MenuManager.h"
-
+#include "../Funciones\FuncionesGraficas\rlutil.h"
+#include "../Funciones\FuncionesGraficas\globales.h"
 #include <iostream>
 
 using namespace std;
 
-void MenuManager::menu(){
+void MenuManager::Menu() {
+    int opcion = 1;
+    do {
+        rlutil::cls();
+        rlutil::hidecursor();
+        MostrarMenuPrincipal(opcion);
 
-    int op;
-    bool t=true;
-    while(t){
-        system ("cls");
-        cout<<"--------- MENU PRINCIPAL --------"<<endl;
-        cout<<"---------------------------------"<<endl;
-        cout<<"(1) - PRODUCTOS "<<endl;
-        cout<<"(2) - CLIENTES"<<endl;
-        cout<<"(3) - RESERVAS"<<endl;
-        cout<<"(4) - CONFIGURACION"<<endl;
-        cout<<"(5) - XXX"<<endl;
-        cout<<"---------------------------------"<<endl;
-        cout<<"(0) - SALIR "<<endl;
-        cout<<"---------------------------------"<<endl;
-        cin>>op;
+        int Key = rlutil::getkey();
 
-        system("cls");
-        switch(op){
-        case 1:
-            ProdManager.Menu();
-            break;
-        case 2:
-            ClientManager.Menu();
-            break;
-        case 3:
-            ReservaManager.Menu();
-            break;
-        case 4:
-
-            break;
-        case 5:
-
-            break;
-        case 6:
-
-            break;
-        case 0:
-            t=false;
-            break;
-
-        default:
-            cout<<"---"<<endl;
-            break;
-
+        switch (Key) {
+            case rlutil::KEY_UP:
+                opcion--;
+                if (opcion < 1) opcion = 6;
+                break;
+            case rlutil::KEY_DOWN:
+                opcion++;
+                if (opcion > 6) opcion = 1;
+                break;
+            case rlutil::KEY_ENTER:
+                switch (opcion) {
+                    case 1:
+                        rlutil::cls();
+                        ProdManager.Menu();
+                        rlutil::anykey();
+                        break;
+                    case 2:
+                        rlutil::cls();
+                        ClientManager.Menu();
+                        rlutil::anykey();
+                        break;
+                    case 3:
+                        rlutil::cls();
+                        ReservaManager.Menu();
+                        rlutil::anykey();
+                        break;
+                    case 4:
+                        rlutil::cls();
+                        rlutil::anykey();
+                        break;
+                    case 6:
+                        rlutil::cls();
+                        cout << "Saliendo del Menu Clientes..." << endl;
+                        rlutil::setColor(rlutil::COLOR::WHITE);
+                        opcion = 0;
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
         }
-        system("pause");
-    }
+
+    } while (opcion != 0);
 }
+

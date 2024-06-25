@@ -11,5 +11,5 @@ private:
     ClienteManager ClientManager;
     ReservaManager ReservaManager;
 public:
-    void menu();
+    void Menu();
 };

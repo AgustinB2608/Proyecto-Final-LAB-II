@@ -19,7 +19,7 @@ public:
     void setMes(int m);
     void setAnio(int a);
 
-    void CargarFecha();
+    void CargarFecha(bool esReserva);
     void MostrarFecha() const;
     bool ValidarFecha() const;
 };
