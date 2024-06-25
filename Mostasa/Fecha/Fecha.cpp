@@ -2,6 +2,8 @@
 #include <ctime>
 #include "Fecha.h"
 #include "../Funciones\ValidacionesGlobales.h"
+#include "../Funciones\FuncionesGraficas\rlutil.h"
+#include "../Funciones\FuncionesGraficas\globales.h"
 
 using namespace std;
 
@@ -56,6 +58,55 @@ void Fecha::CargarFecha(bool esReserva) {
         }
     }
 }
+
+void Fecha::CargarFechaCliente() {
+    const int X = 40;
+    const int Y = 5;
+    int mensajeX = ObtenerPosicionXCentro("Fecha invalida. Por favor, ingrese una fecha valida.");
+
+
+
+    do {
+        rlutil::cls(); // Limpiar toda la pantalla para mostrar el formulario limpio
+
+            DibujarTitulo("- DATOS DEL CLIENTE NUEVO -");
+    MostrarOpcionMenu("Ingrese la Fecha:", Y);
+
+        rlutil::locate(X + 16, Y);
+        std::cin >> _dia;
+
+        rlutil::locate(X + 18, Y);
+        std::cout << "/";
+
+        rlutil::locate(X + 19, Y);
+        std::cin >> _mes;
+
+        rlutil::locate(X + 21, Y);
+        std::cout << "/";
+
+        rlutil::locate(X + 22, Y);
+        std::cin >> _anio;
+
+        std::cin.clear();
+        //std::cin.ignore() se usa para descartar caracteres en el buffer de entrada, especialmente útil después de leer
+        //datos usando std::cin para evitar problemas con caracteres adicionales que podrían interferir con futuras operaciones de entrada.
+        //By:La IA
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        if (!ValidarFecha()) {
+            rlutil::locate(mensajeX, Y + 2);
+            rlutil::setColor(rlutil::RED);
+            std::cout << "Fecha invalida. Por favor, ingrese una fecha valida." << std::endl;
+            rlutil::setColor(rlutil::WHITE);
+            rlutil::anykey(); // Esperar a que el usuario vea el mensaje
+        }
+    } while (!ValidarFecha());
+}
+
+
+
+
+
 
 bool Fecha::ValidarFecha() const {
     if (_anio < 1900 || _anio > 2024 || _mes < 1 || _mes > 12 || _dia < 1 || _dia > 31) {

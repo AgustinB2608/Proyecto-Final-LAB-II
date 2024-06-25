@@ -334,7 +334,7 @@
 	<cstring>
 	"../Fecha/Fecha.h"
 
-1719273768 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\fecha\fecha.h
+1719351688 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\fecha\fecha.h
 	<iostream>
 	<string.h>
 
@@ -346,7 +346,7 @@
 	<cstdio>
 	"../Clientes\Clientes.h"
 
-1719292227 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.cpp
+1719353665 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.cpp
 	"../Clientes/ClientesManager.h"
 	"../Funciones/ValidacionesGlobales.h"
 	<iostream>
@@ -359,13 +359,15 @@
 	"../Clientes/Clientes.h"
 	"../Clientes/ClientesArchivo.h"
 
-1719274433 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\fecha\fecha.cpp
+1719353689 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\fecha\fecha.cpp
 	<iostream>
 	<ctime>
 	"Fecha.h"
 	"../Funciones\ValidacionesGlobales.h"
+	"../Funciones\FuncionesGraficas\rlutil.h"
+	"../Funciones\FuncionesGraficas\globales.h"
 
-1719291699 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\main.cpp
+1719353824 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\main.cpp
 	<iostream>
 	"../MenuManager\MenuManager.h"
 	"../Clientes/Clientes.h"
@@ -515,7 +517,7 @@
 	<string>
 	<regex>
 
-1719290748 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\funciones\funcionesgraficas\globales.h
+1719343597 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\funciones\funcionesgraficas\globales.h
 	"../Funciones\FuncionesGraficas\rlutil.h"
 
 1718728555 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\funciones\funcionesgraficas\rlutil.h

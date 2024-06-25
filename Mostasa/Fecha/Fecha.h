@@ -20,6 +20,7 @@ public:
     void setAnio(int a);
 
     void CargarFecha(bool esReserva);
+    void CargarFechaCliente();
     void MostrarFecha() const;
     bool ValidarFecha() const;
 };

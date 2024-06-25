@@ -16,43 +16,40 @@ Cliente ClienteManager::Crear() {
     int Y = 1;
     int X = ObtenerPosicionXCentro("|--------------------------------------|");
     int X2 = ObtenerCentroConsola();
-
-    // Dibujar el título y el recuadro de datos
     DibujarTitulo("- DATOS DEL CLIENTE NUEVO -");
-    RecuadroDatos(X, Y + 1, '-', '|');
 
     // Ingresar el ID
     do {
+        int I = ObtenerPosicionXCentro("Ya existe un cliente con ese ID.");
+        rlutil::cls();
+        DibujarTitulo("- DATOS DEL CLIENTE NUEVO -");
         MostrarOpcionMenu("Ingresar el ID:", Y);
-        rlutil::locate(X2, Y + 3);
+        rlutil::locate(X2, Y + 4);
         std::cin >> ID;
+        std::cin.ignore(); // Limpiar el buffer de entrada
         if (ClienteArc.buscar(ID) > -1) {
-            rlutil::locate(X2, Y + 5);
+            rlutil::locate(X2-15, Y + 6);
             rlutil::setColor(rlutil::RED);
-            std::cout << "Ya existe un cliente con ese ID" << std::endl;
-            rlutil::resetColor();
+            std::cout << "Ya existe un cliente con ese ID." << std::endl;
+            rlutil::setColor(rlutil::WHITE);
             rlutil::anykey();
-            rlutil::locate(X2, Y + 3);
-            std::cout << "                             "; // Clear the line
         }
         cliente.setIDCliente(ID);
     } while (cliente.getIDCliente() == -1 || ClienteArc.buscar(ID) > -1);
 
-    std::cin.ignore();
-
     // Ingresar el Nombre
     do {
+        int N = ObtenerPosicionXCentro("Nombre invalido. Debe tener menos de 30 caracteres, no contener digitos y no estar vacio.");
         rlutil::cls();
         DibujarTitulo("- DATOS DEL CLIENTE NUEVO -");
-        RecuadroDatos(X, Y + 1, '-', '|');
         MostrarOpcionMenu("Ingresar el Nombre:", Y);
-        rlutil::locate(X2, Y + 3);
+        rlutil::locate(X2-6, Y + 4);
         std::getline(std::cin, Nombre);
         if (Nombre.length() > 30 || tieneDigitos(Nombre) || Nombre.empty()) {
-            rlutil::locate(X2, Y + 5);
+            rlutil::locate(N, Y + 6);
             rlutil::setColor(rlutil::RED);
             std::cout << "Nombre invalido. Debe tener menos de 30 caracteres, no contener digitos y no estar vacio." << std::endl;
-            rlutil::resetColor();
+            rlutil::setColor(rlutil::WHITE);
             rlutil::anykey();
         }
     } while (Nombre.length() > 30 || tieneDigitos(Nombre) || Nombre.empty());
@@ -60,17 +57,17 @@ Cliente ClienteManager::Crear() {
 
     // Ingresar el Email
     do {
+        int C = ObtenerPosicionXCentro("Email invalido. Debe ser example@example.com");
         rlutil::cls();
         DibujarTitulo("- DATOS DEL CLIENTE NUEVO -");
-        RecuadroDatos(X, Y + 1, '-', '|');
         MostrarOpcionMenu("Ingresar el Email:", Y);
-        rlutil::locate(X2, Y + 3);
+        rlutil::locate(X2-5, Y + 4);
         std::getline(std::cin, Email);
         if (!validarEmail(Email) || Email.empty()) {
-            rlutil::locate(X2, Y + 5);
+            rlutil::locate(C, Y + 6);
             rlutil::setColor(rlutil::RED);
-            std::cout << "Email invalido." << std::endl;
-            rlutil::resetColor();
+            std::cout << "Email invalido. Debe ser example@example.com" << std::endl;
+            rlutil::setColor(rlutil::WHITE);
             rlutil::anykey();
         }
     } while (!validarEmail(Email) || Email.empty());
@@ -78,17 +75,17 @@ Cliente ClienteManager::Crear() {
 
     // Ingresar el Telefono
     do {
+        int T = ObtenerPosicionXCentro("Numero de Telefono invalido. Debe tener entre 10 y 15 dígitos y no estar vacio.");
         rlutil::cls();
         DibujarTitulo("- DATOS DEL CLIENTE NUEVO -");
-        RecuadroDatos(X, Y + 1, '-', '|');
         MostrarOpcionMenu("Ingresar el Numero de Telefono:", Y);
-        rlutil::locate(X2, Y + 3);
+        rlutil::locate(X2, Y + 4);
         std::getline(std::cin, Telefono);
         if (Telefono.length() < 10 || Telefono.length() > 15 || Telefono.empty()) {
-            rlutil::locate(X2, Y + 5);
+            rlutil::locate(T, Y + 6);
             rlutil::setColor(rlutil::RED);
-            std::cout << "Numero de Telefono invalido. Debe tener entre 10 y 15 digitos y no estar vacio." << std::endl;
-            rlutil::resetColor();
+            std::cout << "Numero de Telefono invalido. Debe tener entre 10 y 15 dígitos y no estar vacio." << std::endl;
+            rlutil::setColor(rlutil::WHITE);
             rlutil::anykey();
         }
     } while (Telefono.length() < 10 || Telefono.length() > 15 || Telefono.empty());
@@ -96,35 +93,32 @@ Cliente ClienteManager::Crear() {
 
     // Ingresar el DNI
     do {
+        int D = ObtenerPosicionXCentro("DNI invalido. Debe tener 8 digitos y no estar vacio.");
         rlutil::cls();
         DibujarTitulo("- DATOS DEL CLIENTE NUEVO -");
-        RecuadroDatos(X, Y + 1, '-', '|');
         MostrarOpcionMenu("Ingresar el DNI:", Y);
-        rlutil::locate(X2, Y + 3);
+        rlutil::locate(X2-2, Y + 4);
         std::getline(std::cin, DNI);
         cliente.setDNICliente(DNI);
         if (DNI.length() != 8 || DNI.empty() || cliente.getDNICliente() == "Sin DNI") {
-            rlutil::locate(X2, Y + 5);
+            rlutil::locate(X2, Y + 6);
             rlutil::setColor(rlutil::RED);
             std::cout << "DNI invalido. Debe tener 8 digitos y no estar vacio." << std::endl;
-            rlutil::resetColor();
+            rlutil::setColor(rlutil::WHITE);
             rlutil::anykey();
         }
     } while (DNI.length() != 8 || DNI.empty() || cliente.getDNICliente() == "Sin DNI");
 
     // Ingresar la Fecha
     rlutil::cls();
-    DibujarTitulo("- DATOS DEL CLIENTE NUEVO -");
-    RecuadroDatos(X, Y + 1, '-', '|');
-    MostrarOpcionMenu("Ingrese la Fecha:", Y);
-    rlutil::locate(X2, Y + 3);
-    fecha.CargarFecha(false);
+    fecha.CargarFechaCliente();
     cliente.setFechaCreacion(fecha);
 
     cliente.setActivo(true);
 
     return cliente;
 }
+
 
 
 void ClienteManager::Cargar() {
@@ -159,9 +153,11 @@ void ClienteManager::bajaLogica() {
 }
 
 void ClienteManager::OrdenarClientesPorID(Cliente* clientes, int cantreg) {
-    for (int i = 0; i < cantreg - 1; i++) {
+    for (int i = 0; i < cantreg - 1; i++) { ///Controla el num de pasadas necesarias para ordenar el vector./cantreg - 1 veces porque después de cantreg - 1 pasadas, estara yodo ordenado
+        ///*Ciclo interno* que recorre desde el inicio hasta el ultimo elemento no ordenado
         for (int j = 0; j < cantreg - i - 1; j++) {
             if (clientes[j].getIDCliente() > clientes[j + 1].getIDCliente()) {
+                /// Si ID actual es mayor que el siguiente, intercambiar los dos elementos
                 Cliente temp = clientes[j];
                 clientes[j] = clientes[j + 1];
                 clientes[j + 1] = temp;
