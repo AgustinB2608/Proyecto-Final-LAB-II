@@ -20,5 +20,9 @@ public:
     void CopiaSeguridad();
     void RestaurarCopiaSeguridad();
 
+    void ListarMesas(Fecha Fecha);
+    void BuscarMesasXFecha();
+    bool VerificarMesaDisp(int NumeroM, Fecha &fecha);
+
 
 };

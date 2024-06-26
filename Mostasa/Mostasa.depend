@@ -7,10 +7,11 @@
 
 1717488463 c:\users\berna\onedrive - frgp.utn.edu.ar\escritorio\proyecto lab ii\mostasa\funciones\funciones_usuario.h
 
-1719172031 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\main.cpp
+1719356770 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\main.cpp
 	<iostream>
 	"../MenuManager\MenuManager.h"
 	"../Clientes/Clientes.h"
+	"../Funciones\FuncionesGraficas\globales.h"
 
 1718079197 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos.cpp
 	"Productos.h"
@@ -215,11 +216,11 @@
 	<cstring>
 	"../Fecha/Fecha.h"
 
-1719172031 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\fecha\fecha.h
+1719356770 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\fecha\fecha.h
 	<iostream>
 	<string.h>
 
-1719172031 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.cpp
+1719356770 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.cpp
 	"../Clientes/ClientesManager.h"
 	"../Funciones/ValidacionesGlobales.h"
 	<iostream>
@@ -227,25 +228,28 @@
 	<cstring>
 	"../Funciones\FuncionesGraficas\globales.h"
 
-1719172031 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.h
+1719356770 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.h
 	"../Fecha/Fecha.h"
 	"../Clientes/Clientes.h"
 	"../Clientes/ClientesArchivo.h"
 
-1719172031 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\fecha\fecha.cpp
+1719356770 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\fecha\fecha.cpp
 	<iostream>
-	<cstring>
-	<string>
 	<ctime>
 	"Fecha.h"
+	"../Funciones\ValidacionesGlobales.h"
+	"../Funciones\FuncionesGraficas\rlutil.h"
+	"../Funciones\FuncionesGraficas\globales.h"
 
-1719172031 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\menumanager\menumanager.h
+1719356770 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\menumanager\menumanager.h
 	"../Productos/ProductosManager.h"
 	"../Clientes\ClientesManager.h"
 	"../Reservas/ReservasManager.h"
 
-1719172031 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\menumanager\menumanager.cpp
+1719356770 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\menumanager\menumanager.cpp
 	"../MenuManager\MenuManager.h"
+	"../Funciones\FuncionesGraficas\rlutil.h"
+	"../Funciones\FuncionesGraficas\globales.h"
 	<iostream>
 
 1718101114 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto final mostasa lab ii\proyecto-final-lab-ii\mostasa\clientes\clientesarchivo.cpp
@@ -534,11 +538,11 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1719172031 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\funciones\validacionesglobales.h
+1719356770 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\funciones\validacionesglobales.h
 	<string>
 	<regex>
 
-1719172031 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\funciones\funcionesgraficas\globales.h
+1719356770 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\funciones\funcionesgraficas\globales.h
 	"../Funciones\FuncionesGraficas\rlutil.h"
 
 1719172031 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\funciones\funcionesgraficas\rlutil.h
@@ -555,7 +559,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1719172031 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas\reservasmanager.h
+1719366529 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas\reservasmanager.h
 	"../Reservas/Reservas.h"
 	"../Reservas/ReservasArchivo.h"
 
@@ -564,7 +568,7 @@
 	<string>
 	"../Fecha/Fecha.h"
 
-1719173622 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas\reservasarchivo.h
+1719372770 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas\reservasarchivo.h
 	<iostream>
 	"../Reservas/Reservas.h"
 	"Fecha.h"
@@ -572,15 +576,16 @@
 1719175931 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas\reservas.cpp
 	"Reservas.h"
 
-1719178618 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas\reservasarchivo.cpp
+1719364466 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas\reservasarchivo.cpp
 	"ReservasArchivo.h"
 	<iostream>
 	<string>
 	<cstring>
 
-1719179609 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas\reservasmanager.cpp
+1719366397 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas\reservasmanager.cpp
 	"ReservasManager.h"
 	<iostream>
 	<string>
 	<cstring>
+	"../Funciones\FuncionesGraficas\globales.h"
 
