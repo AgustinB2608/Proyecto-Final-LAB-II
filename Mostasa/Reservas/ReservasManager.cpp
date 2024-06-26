@@ -134,24 +134,25 @@ void ReservaManager::Mostrar(Reserva x){
     }
 
 
+
 }
 void ReservaManager::Buscar(){
-    int pos;
     Fecha fecha;
-    Reserva x;
-    cout<<"Ingrese el fecha de la reserva a buscar: "<<endl;
-    fecha.CargarFecha(false);
-    pos = ResArch.buscar(fecha);
-
-    if(pos>=0){
-        x=ResArch.leer(pos);
-        if (x.getEstado()){
-        Mostrar(x);
+    Fecha f;
+    cout<<"Ingrese una fecha: "<<endl;
+    fecha.CargarFecha(true);
+    int cantreg = ResArch.getCantidadRegistros();
+    for (int i=0;i<cantreg;i++){
+        Res = ResArch.leer(i);
+        f = Res.getFecha();
+        if (f.getAnio()==fecha.getAnio() && f.getMes()==fecha.getMes()){
+            if(f.getDia()==fecha.getDia()&& Res.getEstado()==true){
+                   Mostrar(Res);
+                   cout<<"---------------------------------------"<<endl;
+            }
         }
-        else{ cout<<"La reserva esta dada de baja"<<endl;}
 
     }
-    else{ cout<<"la reserva no se encuentra"<<endl;}
 
 }
 

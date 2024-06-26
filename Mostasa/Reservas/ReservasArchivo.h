@@ -12,7 +12,7 @@ public:
     ReservaArchivo();
     ReservaArchivo(std::string Filename);
     bool guardar(Reserva x);
-    int buscar(Fecha fecha);
+   // int buscar(Fecha fecha);
     int buscar(int Numero);
     Reserva leer(int pos);
     int getCantidadRegistros();

@@ -46,7 +46,7 @@ int ReservaArchivo::buscar(int Numero){ ///BUSCA POR NUMERO DE RESERVA
     else{return -1;}
 
 }
-int ReservaArchivo::buscar(Fecha fecha){ ///BUSCA resrva POR FECHA DE RESERVA
+/*int ReservaArchivo::buscar(Fecha fecha){ ///BUSCA resrva POR FECHA DE RESERVA
     Reserva x;
     Fecha f;
     int pos=0;
@@ -72,6 +72,7 @@ int ReservaArchivo::buscar(Fecha fecha){ ///BUSCA resrva POR FECHA DE RESERVA
     else{return -1;}
 
 }
+*/
 bool ReservaArchivo::guardar(Reserva x){
     if(abrirA("ab")==false){
         cout<<"No se pudo abrir el archivo correctamente"<<endl;
@@ -167,15 +168,3 @@ bool ReservaArchivo::restaurarCopia(const std::string& filename) {
     cerrarA(); // Cierra el archivo principal
     return true;
 }
-/*
-void ReservaArchivo::CantidadReservasXfecha(Fecha fecha){
-    if(abrirA()==nullptr){
-            cout<<"No se pudo abrir el archivo"<<endl;
-            return;
-    }
-    ReservaArchivo resarch;
-    int cantreg = resarch.getCantidadRegistros();
-    for(int i=0;i<cantreg;i++)
-
-}
-  */
