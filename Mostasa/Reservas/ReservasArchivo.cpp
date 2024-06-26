@@ -167,3 +167,15 @@ bool ReservaArchivo::restaurarCopia(const std::string& filename) {
     cerrarA(); // Cierra el archivo principal
     return true;
 }
+/*
+void ReservaArchivo::CantidadReservasXfecha(Fecha fecha){
+    if(abrirA()==nullptr){
+            cout<<"No se pudo abrir el archivo"<<endl;
+            return;
+    }
+    ReservaArchivo resarch;
+    int cantreg = resarch.getCantidadRegistros();
+    for(int i=0;i<cantreg;i++)
+
+}
+  */
