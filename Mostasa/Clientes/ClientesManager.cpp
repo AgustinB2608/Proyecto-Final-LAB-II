@@ -7,135 +7,133 @@
 using namespace std;
 #include "../Funciones\FuncionesGraficas\globales.h"
 
-
 Cliente ClienteManager::Crear() {
     int ID;
     std::string Nombre, Email, Telefono, DNI;
     Fecha fecha;
     Cliente cliente;
-    int Y = 1;
-    int X = ObtenerPosicionXCentro("|--------------------------------------|");
+    int Y = 7; // Eje Y
     int X2 = ObtenerCentroConsola();
-    DibujarTitulo("- DATOS DEL CLIENTE NUEVO -");
 
-    // Ingresar el ID
+    DibujarTitulo("CLIENTE NUEVO", 3);
+    rlutil::setColor(4);
+    DibujarRecuadro(X2-8,2,15,3);//Recuadro Opcion CLIENTE NUEVO
+    rlutil::setColor(15);
+    DibujarRecuadro(X2-23,Y-1,46,6);//Recuadro General
+
+    // Ingreso de ID
     do {
-        int I = ObtenerPosicionXCentro("Ya existe un cliente con ese ID.");
         rlutil::cls();
-        DibujarTitulo("- DATOS DEL CLIENTE NUEVO -");
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-8,2,15,3);//Recuadro Opcion CLIENTE NUEVO
+        rlutil::setColor(15);
+        DibujarRecuadro(X2-23,Y-1,46,6);//Recuadro General
+        DibujarTitulo("CLIENTE NUEVO", 3);
         MostrarOpcionMenu("Ingresar el ID:", Y);
-        rlutil::locate(X2, Y + 4);
+        rlutil::locate(X2, Y + 2);
         std::cin >> ID;
         std::cin.ignore(); // Limpiar el buffer de entrada
         if (ClienteArc.buscar(ID) > -1) {
-            rlutil::locate(X2-15, Y + 6);
-            rlutil::setColor(rlutil::RED);
-            std::cout << "Ya existe un cliente con ese ID." << std::endl;
-            rlutil::setColor(rlutil::WHITE);
-            rlutil::anykey();
-        }
+            MostrarError("Ya existe un cliente con ese ID.", Y + 5);}
         cliente.setIDCliente(ID);
     } while (cliente.getIDCliente() == -1 || ClienteArc.buscar(ID) > -1);
 
-    // Ingresar el Nombre
+    // Ingreso de Nombre
     do {
-        int N = ObtenerPosicionXCentro("Nombre invalido. Debe tener menos de 30 caracteres, no contener digitos y no estar vacio.");
         rlutil::cls();
-        DibujarTitulo("- DATOS DEL CLIENTE NUEVO -");
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-8,2,15,3);//Recuadro Opcion CLIENTE NUEVO
+        rlutil::setColor(15);
+        DibujarRecuadro(X2-23,Y-1,46,6);//Recuadro General
+        DibujarTitulo("CLIENTE NUEVO", 3);
         MostrarOpcionMenu("Ingresar el Nombre:", Y);
-        rlutil::locate(X2-6, Y + 4);
+        rlutil::locate(X2, Y + 2);
         std::getline(std::cin, Nombre);
         if (Nombre.length() > 30 || tieneDigitos(Nombre) || Nombre.empty()) {
-            rlutil::locate(N, Y + 6);
-            rlutil::setColor(rlutil::RED);
-            std::cout << "Nombre invalido. Debe tener menos de 30 caracteres, no contener digitos y no estar vacio." << std::endl;
-            rlutil::setColor(rlutil::WHITE);
-            rlutil::anykey();
-        }
+            MostrarError("Nombre invalido. Debe tener menos de 30 caracteres, no contener digitos y no estar vacio.", Y + 5);}
     } while (Nombre.length() > 30 || tieneDigitos(Nombre) || Nombre.empty());
     cliente.setNombreCliente(Nombre);
 
-    // Ingresar el Email
+    // Ingreso de CORREO
     do {
-        int C = ObtenerPosicionXCentro("Email invalido. Debe ser example@example.com");
         rlutil::cls();
-        DibujarTitulo("- DATOS DEL CLIENTE NUEVO -");
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-8,2,15,3);//Recuadro Opcion CLIENTE NUEVO
+        rlutil::setColor(15);
+        DibujarRecuadro(X2-23,Y-1,46,6);//Recuadro General
+        DibujarTitulo("CLIENTE NUEVO", 3);
         MostrarOpcionMenu("Ingresar el Email:", Y);
-        rlutil::locate(X2-5, Y + 4);
+        rlutil::locate(X2, Y + 2);
         std::getline(std::cin, Email);
         if (!validarEmail(Email) || Email.empty()) {
-            rlutil::locate(C, Y + 6);
-            rlutil::setColor(rlutil::RED);
-            std::cout << "Email invalido. Debe ser example@example.com" << std::endl;
-            rlutil::setColor(rlutil::WHITE);
-            rlutil::anykey();
-        }
+            MostrarError("Email invalido. Debe ser example@example.com", Y + 5);}
     } while (!validarEmail(Email) || Email.empty());
     cliente.setEmailCliente(Email);
 
-    // Ingresar el Telefono
+    // Ingreso de CELULAR
     do {
-        int T = ObtenerPosicionXCentro("Numero de Telefono invalido. Debe tener entre 10 y 15 dígitos y no estar vacio.");
         rlutil::cls();
-        DibujarTitulo("- DATOS DEL CLIENTE NUEVO -");
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-8,2,15,3);//Recuadro Opcion CLIENTE NUEVO
+        rlutil::setColor(15);
+        DibujarRecuadro(X2-23,Y-1,46,6);//Recuadro General
+        DibujarTitulo("CLIENTE NUEVO", 3);
         MostrarOpcionMenu("Ingresar el Numero de Telefono:", Y);
-        rlutil::locate(X2, Y + 4);
+        rlutil::locate(X2, Y + 2);
         std::getline(std::cin, Telefono);
         if (Telefono.length() < 10 || Telefono.length() > 15 || Telefono.empty()) {
-            rlutil::locate(T, Y + 6);
-            rlutil::setColor(rlutil::RED);
-            std::cout << "Numero de Telefono invalido. Debe tener entre 10 y 15 dígitos y no estar vacio." << std::endl;
-            rlutil::setColor(rlutil::WHITE);
-            rlutil::anykey();
-        }
+            MostrarError("Numero de Telefono invalido. Debe tener entre 10 y 15 digitos y no estar vacio.", Y + 5);}
     } while (Telefono.length() < 10 || Telefono.length() > 15 || Telefono.empty());
     cliente.setTelefonoCliente(Telefono);
 
-    // Ingresar el DNI
+    // Ingreso de DNI
     do {
-        int D = ObtenerPosicionXCentro("DNI invalido. Debe tener 8 digitos y no estar vacio.");
         rlutil::cls();
-        DibujarTitulo("- DATOS DEL CLIENTE NUEVO -");
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-8,2,15,3);//Recuadro Opcion CLIENTE NUEVO
+        rlutil::setColor(15);
+        DibujarRecuadro(X2-23,Y-1,46,6);//Recuadro General
+        DibujarTitulo("CLIENTE NUEVO", 3);
         MostrarOpcionMenu("Ingresar el DNI:", Y);
-        rlutil::locate(X2-2, Y + 4);
+        rlutil::locate(X2, Y + 2);
         std::getline(std::cin, DNI);
         cliente.setDNICliente(DNI);
         if (DNI.length() != 8 || DNI.empty() || cliente.getDNICliente() == "Sin DNI") {
-            rlutil::locate(X2, Y + 6);
-            rlutil::setColor(rlutil::RED);
-            std::cout << "DNI invalido. Debe tener 8 digitos y no estar vacio." << std::endl;
-            rlutil::setColor(rlutil::WHITE);
-            rlutil::anykey();
-        }
+            MostrarError("DNI invalido. Debe tener 8 digitos y no estar vacio.", Y + 5);}
     } while (DNI.length() != 8 || DNI.empty() || cliente.getDNICliente() == "Sin DNI");
 
-    // Ingresar la Fecha
-    rlutil::cls();
-    fecha.CargarFechaCliente();
-    cliente.setFechaCreacion(fecha);
+    // Ingreso de FECHA
+        rlutil::cls();
+        MostrarOpcionMenu("Ingresar la Fecha:", Y);
+        fecha.CargarFechaCliente();
+        cliente.setFechaCreacion(fecha);
 
-    cliente.setActivo(true);
+    cliente.setActivo(true);//Dar de alta CLIENTE
 
     return cliente;
 }
 
-
-
 void ClienteManager::Cargar() {
     Cliente C = Crear();
-
     if (ClienteArc.guardar(C)) {
-        cout << "Cargado :)" << endl;
-    } else {
-        cout << "No Guardado :(" << endl;
-    }
+    MostrarConfirmacion("Cliente dado de alta Correctamente.", 12);}
+    else {MostrarError("No se pudo dar de alta al Cliente.", 12);}
 }
 
 void ClienteManager::bajaLogica() {
     Cliente C;
     int ID, pos;
-    cout << "Ingresar ID: " << endl;
-    cin >> ID;
+    int X2 = ObtenerCentroConsola();
+
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-11,2,21,3);//Recuadro Opcion DAR DE BAJA
+        rlutil::setColor(15);
+        DibujarTitulo("DAR DE BAJA CLIENTE", 3);
+
+        DibujarRecuadro(X2-23,6,46,6);//Recuadro General
+        DibujarTitulo("Ingresar ID:", 7);
+        rlutil::locate(X2,9);
+        cin >> ID;
 
     pos = ClienteArc.buscar(ID);
 
@@ -143,12 +141,12 @@ void ClienteManager::bajaLogica() {
         C = ClienteArc.leer(pos);
         C.setActivo(false);
         if (ClienteArc.Modificar(C, pos)) {
-            cout << "Dado de baja Correctamente." << endl;
+            MostrarConfirmacion("Cliente dado de baja Correctamente.", 12);
         } else {
-            cout << "Error. No se pudo dar de baja." << endl;
+            MostrarError("No se pudo dar de baja al Cliente.", 12);
         }
     } else {
-        cout << "No existe." << endl;
+        MostrarError("Este cliente no existe.", 12);
     }
 }
 
@@ -169,7 +167,7 @@ void ClienteManager::OrdenarClientesPorID(Cliente* clientes, int cantreg) {
 void ClienteManager::Listar() {
     int cantreg = ClienteArc.getCantidadRegistros();
     if (cantreg == 0) {
-        std::cout << "No hay registros para mostrar." << std::endl;
+        MostrarError("No hay registros para mostrar.",2);
         return;
     }
 
@@ -221,11 +219,16 @@ void ClienteManager::Listar() {
         // Mostrar la cantidad de registros activos
         int XXX = ObtenerPosicionXCentro("MOSTRANDO X CLIENTES");
         rlutil::locate(XXX, 2);
-        std::cout << "MOSTRANDO " << activos << " CLIENTES";
+        std::cout << "MOSTRANDO " << activos << "  CLIENTES";
+        rlutil::setColor(4);
+        DibujarRecuadro(XXX-1,1,23,3);//Recuadro Opcion MOSTRANDO CLIENTES
+        rlutil::setColor(15);
+
+
 
         // Mostrar información de la página
         int XX = ObtenerPosicionXCentro("Pagina X/X - Use las flechas para navegar");
-        rlutil::locate(XX, rlutil::trows() - 2);
+        rlutil::locate(XX, rlutil::trows() - 2); //trows es de rlutil, es para que te devuelva la cantidad de filas de la consola
         std::cout << "Pagina " << (paginaActual + 1) << " de " << totalPaginas;
         rlutil::locate(XX, rlutil::trows() - 1);
         std::cout << "Use las flechas para navegar. ESC para salir.";
@@ -241,9 +244,8 @@ void ClienteManager::Listar() {
         }
     }
 
-    delete[] clientes; // Liberar la memoria dinámica
+    delete[] clientes;
 }
-
 
 void ClienteManager::MostrarALL(Cliente C, int X, int &Y) {
     rlutil::locate(X, Y + 1);
@@ -335,30 +337,34 @@ void ClienteManager::Modificar() {
         C.setFechaCreacion(fecha);
 
         if (ClienteArc.Modificar(C, pos)) {
-            cout << "Modificado correctamente" << endl;
+            MostrarConfirmacion("Modificado correctamente",12);
         } else {
-            cout << "No se pudo modificar" << endl;
+            MostrarError("No se pudo modificar",12);
         }
     } else {
-        cout << "No se pudo modificar, el cliente no existe" << endl;
+        MostrarError("No se pudo modificar, el cliente no existe",12);
     }
 }
 
 void ClienteManager::Buscar() {
     int pos, ID;
     Cliente C;
-    rlutil::hidecursor();
-    int X = ObtenerPosicionXCentro("BUSQUEDA POR ID");
-    int X2 = ObtenerPosicionXCentro("Ingrese el ID del Cliente.");
-    int X3 = ObtenerCentroConsola();
-    int X4 = ObtenerPosicionXCentro("ID Dado de baja");
-    int X5 = ObtenerPosicionXCentro("No se encontro el ID");
+
+    int X = ObtenerCentroConsola();
+
+    DibujarTitulo("BUSQUEDA POR ID", 3);
+    rlutil::setColor(4);
+    DibujarRecuadro(X-9,2,17,3);//Recuadro Opcion BUSCAR POR ID
+    rlutil::setColor(15);
+
+
+    DibujarRecuadro(X-23,6,46,6);//Recuadro General
     rlutil::locate(X,1);
-    cout<<"BUSQUEDA POR ID";
-    rlutil::locate(X2,3);
-    cout << "Ingrese el ID del Cliente." << endl;
-    rlutil::locate(X3,5);
+
+    DibujarTitulo("Ingrese el ID del Cliente:", 7);
+    rlutil::locate(X, 9);
     cin >> ID;
+
     rlutil::cls();
     pos = ClienteArc.buscar(ID);
     if (pos >= 0) {
@@ -366,59 +372,44 @@ void ClienteManager::Buscar() {
         if (C.getActivo()) {
             Mostrar(C);
         } else {
-            rlutil::locate(X4,3);
-            cout << "ID Dado de baja" << endl;
+            MostrarError("Este ID esta dado de Baja.",12);
         }
     } else {
-        rlutil::locate(X5,3);
-        cout << "No se encontro el ID" << endl;
+        MostrarError("No se encontro el ID.",12);
     }
-    int XX = ObtenerPosicionXCentro("Presione cualquier tecla para volver al Menu Principal.");
-    rlutil::locate(XX,29);
-    cout << "Presione cualquier tecla para volver al Menu Principal.";
-    rlutil::anykey();
 }
 
 void ClienteManager::BuscarPorDNI() {
     std::string DNI;
     int pos;
     Cliente C;
-    rlutil::hidecursor();
-    int X = ObtenerPosicionXCentro("BUSQUEDA POR DNI");
-    int X1 = ObtenerPosicionXCentro("XXXXXXXX");
-    int X2 = ObtenerPosicionXCentro("Ingrese el DNI del Cliente.");
-    int X3 = ObtenerPosicionXCentro("El DNI XXXXXXXX Coincide con el ID: ");
-    int X4 = ObtenerPosicionXCentro("Cliente encontrado pero dado de baja");
-    int X5 = ObtenerPosicionXCentro("No se encontró ningun cliente con ese DNI");
-    rlutil::locate(X,1);
-    cout<<"BUSQUEDA POR DNI";
-    rlutil::locate(X2,3);
-    cout << "Ingrese el DNI del Cliente.";
-    rlutil::locate(X1-2,5);
-    cout <<(char)175;
-    rlutil::locate(X1+9,5);
-    cout <<(char)174;
-    rlutil::locate(X1,5);
+
+    int X = ObtenerCentroConsola();
+
+    DibujarTitulo("BUSQUEDA POR DNI", 3);
+    rlutil::setColor(4);
+    DibujarRecuadro(X-9,2,18,3);//Recuadro Opcion BUSCAR POR ID
+    rlutil::setColor(15);
+
+    DibujarRecuadro(X-23,6,46,6);//Recuadro General
+
+    DibujarTitulo("Ingrese el DNI del Cliente:",7);
+    rlutil::locate(X,9);
     cin >> DNI;
+
     pos = ClienteArc.buscarPorDNI(DNI);
     if (pos >= 0) {
         C = ClienteArc.leer(pos);
         if (C.getActivo()) {
-            rlutil::locate(X3,3);
+            rlutil::setColor(2);
             cout << "El DNI "<<DNI<<" Coincide con el ID: "<<C.getIDCliente() << endl;
+            rlutil::setColor(15);
         } else {
-            rlutil::locate(X4,3);
-            cout << "Cliente encontrado pero dado de baja" << endl;
+            MostrarError("Cliente encontrado pero dado de baja",12);
         }
-    } else {
-        rlutil::locate(X5,3);
-        cout << "No se encontro ningun cliente con ese DNI" << endl;
-    }
-
-    int XX = ObtenerPosicionXCentro("Presione cualquier tecla para volver al Menu Principal.");
-    rlutil::locate(XX,29);
-    cout << "Presione cualquier tecla para volver al Menu Principal.";
-    rlutil::anykey();
+        } else {
+            MostrarError("No se encontro ningun cliente con ese DNI",12);
+        }
 }
 
 void ClienteManager::CopiaSeguridad() {

@@ -60,76 +60,49 @@ void Fecha::CargarFecha(bool esReserva) {
 }
 
 void Fecha::CargarFechaCliente() {
-    const int X = 40;
-    const int Y = 5;
-    int mensajeX = ObtenerPosicionXCentro("Fecha invalida. Por favor, ingrese una fecha valida.");
-
-
-
+    const int X = ObtenerCentroConsola();
+    const int Y = 7;
     do {
         rlutil::cls(); // Limpiar toda la pantalla para mostrar el formulario limpio
-
-            DibujarTitulo("- DATOS DEL CLIENTE NUEVO -");
-    MostrarOpcionMenu("Ingrese la Fecha:", Y);
-
-        rlutil::locate(X + 16, Y);
+        DibujarTitulo("CLIENTE NUEVO", 3);
+        rlutil::setColor(4);
+        DibujarRecuadro(X-8,2,15,3);//Recuadro Opcion CLIENTE NUEVO
+        rlutil::setColor(15);
+        DibujarRecuadro(X-23,Y-1,46,6);//Recuadro General
+        MostrarOpcionMenu("Ingrese la Fecha (DD/MM/AAAA):", Y);
+        rlutil::locate(X, Y + 2);
         std::cin >> _dia;
-
-        rlutil::locate(X + 18, Y);
+        rlutil::locate(X + 2, Y + 2);
         std::cout << "/";
-
-        rlutil::locate(X + 19, Y);
+        rlutil::locate(X + 3, Y + 2);
         std::cin >> _mes;
-
-        rlutil::locate(X + 21, Y);
+        rlutil::locate(X + 5, Y + 2);
         std::cout << "/";
-
-        rlutil::locate(X + 22, Y);
+        rlutil::locate(X + 6, Y + 2);
         std::cin >> _anio;
-
         std::cin.clear();
-        //std::cin.ignore() se usa para descartar caracteres en el buffer de entrada, especialmente útil después de leer
-        //datos usando std::cin para evitar problemas con caracteres adicionales que podrían interferir con futuras operaciones de entrada.
-        //By:La IA
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
         if (!ValidarFecha()) {
-            rlutil::locate(mensajeX, Y + 2);
-            rlutil::setColor(rlutil::RED);
-            std::cout << "Fecha invalida. Por favor, ingrese una fecha valida." << std::endl;
-            rlutil::setColor(rlutil::WHITE);
-            rlutil::anykey(); // Esperar a que el usuario vea el mensaje
-        }
+            MostrarError("Fecha invalida. Por favor, ingrese una fecha valida.", Y + 5);}
     } while (!ValidarFecha());
 }
 
-
-
-
-
-
 bool Fecha::ValidarFecha() const {
-    if (_anio < 1900 || _anio > 2024 || _mes < 1 || _mes > 12 || _dia < 1 || _dia > 31) {
-        return false;
-    }
+    const int ANIO_VALIDO = 2024;//Modificar a gusto
+    if (_anio != ANIO_VALIDO || _mes < 1 || _mes > 12 || _dia < 1 || _dia > 31) {return false;}
 
-    // Días máximos por mes (no considerando años bisiestos)
+    // Dis maximos por mes (no considera años bisiestos)
     int diasMaximos[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-    // Ajuste para años bisiestos
+    // Años bisiestos
     if (_mes == 2) {
-        if ((_anio % 4 == 0 && _anio % 100 != 0) || (_anio % 400 == 0)) {
-            diasMaximos[1] = 29;
-        }
+        if ((ANIO_VALIDO % 4 == 0 && ANIO_VALIDO % 100 != 0) || (ANIO_VALIDO % 400 == 0)) {diasMaximos[1] = 29;}
     }
 
-    if (_dia > diasMaximos[_mes - 1]) {
-        return false;
-    }
+    if (_dia > diasMaximos[_mes - 1]) {return false;}
 
     return true;
 }
 
-void Fecha::MostrarFecha() const {
-    cout << getDia() << "/" << getMes() << "/" << getAnio() << endl;
-}
+void Fecha::MostrarFecha() const {cout << getDia() << "/" << getMes() << "/" << getAnio() << endl;}
