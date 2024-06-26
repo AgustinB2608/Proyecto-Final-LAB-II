@@ -97,8 +97,53 @@ inline void MostrarMenuPrincipal (int opcion) {
 
 }
 
-/*inline void MostrarMenuProductos(int opcion) {
-}*/
+inline void MostrarMenuProductos(int opcion) {
+    rlutil::setColor(rlutil::COLOR::WHITE);
+    int posXCentro = ObtenerPosicionXCentro("MOSTASA CLIENTES");
+    int X = ObtenerCentroConsola();
+    rlutil::locate(X-2, 3);
+    std::cout << "MOSTASA PRODUCTOS" << std::endl << std::endl;
+
+    int posY = 7;
+
+    DibujarRecuadro(posXCentro-2,posY-1,32,11);
+
+    rlutil::setColor(opcion == 1 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY);
+    std::cout << "AGREGAR PRODUCTO" << std::endl;
+
+    rlutil::setColor(opcion == 2 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY + 1);
+    std::cout << "ELIMINAR PRODUCTO" << std::endl;
+
+    rlutil::setColor(opcion == 3 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY + 2);
+    std::cout << "LISTAR PRODUCTOS" << std::endl;
+
+    rlutil::setColor(opcion == 4 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY + 3);
+    std::cout << "MODIFICAR CANTIDAD" << std::endl;
+
+    rlutil::setColor(opcion == 5 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY + 4);
+    std::cout << "BUSCAR POR ID" << std::endl;
+
+    rlutil::setColor(opcion == 6 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY + 5);
+    std::cout << "LISTA DE MENOR A MAYOR PRECIO" << std::endl;
+
+    rlutil::setColor(opcion == 7 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY + 6);
+    std::cout << "REALIZAR COPIA DE SEGURIDAD" << std::endl;
+
+    rlutil::setColor(opcion == 8 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY + 7);
+    std::cout << "RESTAURAR COPIA DE SEGURIDAD" << std::endl;
+
+    rlutil::setColor(opcion == 9 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY + 8);
+    std::cout << "VOLVER" << std::endl;
+}
 
 
 inline void MostrarMenuClientes(int opcion) {

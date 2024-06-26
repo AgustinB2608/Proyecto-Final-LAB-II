@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <regex>
-
+#include "../Fecha/Fecha.h"
 //Prototipos
 bool tieneDigitos(const std::string& str);
 bool validarEmail(const std::string& email);
@@ -18,7 +18,7 @@ inline bool tieneDigitos(const std::string& str) {
 }
 
 inline bool validarEmail(const std::string& email) {
-    static const std::regex regex_pattern(
+    static const std::regex regex_pattern(                     ///^ inicio de la cadena, $ final de la cadena
         R"(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$)"
     );
     return std::regex_match(email, regex_pattern);

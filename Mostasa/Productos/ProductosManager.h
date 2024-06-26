@@ -12,7 +12,7 @@ public:
     Producto Crear();
     void Cargar();
     void Listar();
-    void Mostrar(Producto x);
+    void Mostrar(Producto x, int X, int &Y);
     void Modificar();
     void Buscar();
 
