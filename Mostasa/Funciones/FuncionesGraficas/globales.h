@@ -194,6 +194,54 @@ inline void MostrarMenuClientes(int opcion) {
     std::cout << "VOLVER" << std::endl;
 }
 
+inline void MostrarMenuReservas(int opcion) {
+    rlutil::setColor(rlutil::COLOR::WHITE);
+    int posXCentro = ObtenerPosicionXCentro("MOSTASA RESERVAS");
+    int X = ObtenerCentroConsola();
+    rlutil::locate(X-2, 3);
+    std::cout << "MOSTASA RESERVAS" << std::endl << std::endl;
+
+    int posY = 7;
+
+    DibujarRecuadro(posXCentro-2,posY-1,32,11);
+
+    rlutil::setColor(opcion == 1 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY);
+    std::cout << "AGREGAR RESERVA" << std::endl;
+
+    rlutil::setColor(opcion == 2 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY + 1);
+    std::cout << "ELIMINAR RESERVA" << std::endl;
+
+    rlutil::setColor(opcion == 3 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY + 2);
+    std::cout << "LISTAR RESERVAS" << std::endl;
+
+    rlutil::setColor(opcion == 4 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY + 3);
+    std::cout << "MODIFICAR PRODUCTO RESERVADO" << std::endl;
+
+    rlutil::setColor(opcion == 5 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY + 4);
+    std::cout << "BUSCAR RESERVA POR FECHA" << std::endl;
+
+    rlutil::setColor(opcion == 6 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY + 5);
+    std::cout << "LISTAR MESAS DISPONIBLES" << std::endl;
+
+    rlutil::setColor(opcion == 7 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY + 6);
+    std::cout << "REALIZAR COPIA DE SEGURIDAD" << std::endl;
+
+    rlutil::setColor(opcion == 8 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY + 7);
+    std::cout << "RESTAURAR COPIA DE SEGURIDAD" << std::endl;
+
+    rlutil::setColor(opcion == 9 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
+    rlutil::locate(posXCentro, posY + 8);
+    std::cout << "VOLVER" << std::endl;
+}
+
 inline void MostrarError(const std::string& mensaje, int y) {
     int posXCentro = ObtenerPosicionXCentro(mensaje);
     rlutil::locate(posXCentro, y);

@@ -65,76 +65,76 @@ Producto ProductoManager::Crear(){
     DibujarRecuadro(X2-23,Y-1,46,6);
 
     do{
-    rlutil::cls();
-    rlutil::setColor(4);
-    DibujarRecuadro(X2-8,2,16,3);
-    rlutil::setColor(15);
-    DibujarRecuadro(X2-23,Y-1,46,6);//Recuadro General
-    DibujarTitulo("PRODUCTO NUEVO", 3);
-    MostrarOpcionMenu("Ingrese ID:", Y);
-    rlutil::locate(X2, Y + 2);
-    cin>>ID;
-    if (ProdArch.buscar(ID)>-1)MostrarError("Ya existe un producto con el ID ingresado",12);
-    Prod.setID(ID);
-    if (Prod.getID() == -1)MostrarError("El ID ingresado es invalido",12);
+        rlutil::cls();
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-8,2,16,3);
+        rlutil::setColor(15);
+        DibujarRecuadro(X2-23,Y-1,46,6);//Recuadro General
+        DibujarTitulo("PRODUCTO NUEVO", 3);
+        MostrarOpcionMenu("Ingrese ID:", Y);
+        rlutil::locate(X2, Y + 2);
+        cin>>ID;
+        if (ProdArch.buscar(ID)>-1)MostrarError("Ya existe un producto con el ID ingresado",12);
+        Prod.setID(ID);
+        if (Prod.getID() == -1)MostrarError("El ID ingresado es invalido",12);
     }while(Prod.getID() == -1 || ProdArch.buscar(ID)>-1);
 
     do{
-    rlutil::cls();
-    rlutil::setColor(4);
-    DibujarRecuadro(X2-8,2,16,3);
-    rlutil::setColor(15);
-    DibujarRecuadro(X2-23,Y-1,46,6);
-    DibujarTitulo("PRODUCTO NUEVO", 3);
-    MostrarOpcionMenu("Ingrese nombre:", Y);
-    rlutil::locate(X2, Y + 2);
-    cin.ignore();
-    getline(cin,Nombre);
-    Prod.setNombre(Nombre);
-    if (Prod.getNombre() == " ")MostrarError("El nombre ingresado es invalido",12);
+        rlutil::cls();
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-8,2,16,3);
+        rlutil::setColor(15);
+        DibujarRecuadro(X2-23,Y-1,46,6);
+        DibujarTitulo("PRODUCTO NUEVO", 3);
+        MostrarOpcionMenu("Ingrese nombre:", Y);
+        rlutil::locate(X2, Y + 2);
+        cin.ignore();
+        getline(cin,Nombre);
+        Prod.setNombre(Nombre);
+        if (Prod.getNombre() == " ")MostrarError("El nombre ingresado es invalido",12);
     }while(Prod.getNombre() == " ");
 
     do{
-    rlutil::cls();
-    rlutil::setColor(4);
-    DibujarRecuadro(X2-8,2,16,3);
-    rlutil::setColor(15);
-    DibujarRecuadro(X2-23,Y-1,46,6);
-    DibujarTitulo("PRODUCTO NUEVO", 3);
-    MostrarOpcionMenu("Ingrese descripción:", Y);
-    rlutil::locate(X2, Y + 2);
-    //cin.ignore();
-    getline(cin,Descripcion);
-    Prod.setDescripcion(Descripcion);
-    if (Prod.getDescripcion() == " ")MostrarError("La descripcion ingresada es invalida",12);
+        rlutil::cls();
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-8,2,16,3);
+        rlutil::setColor(15);
+        DibujarRecuadro(X2-23,Y-1,46,6);
+        DibujarTitulo("PRODUCTO NUEVO", 3);
+        MostrarOpcionMenu("Ingrese descripción:", Y);
+        rlutil::locate(X2, Y + 2);
+        //cin.ignore();
+        getline(cin,Descripcion);
+        Prod.setDescripcion(Descripcion);
+        if (Prod.getDescripcion() == " ")MostrarError("La descripcion ingresada es invalida",12);
     }while(Prod.getDescripcion() == " ");
 
     do{
-    rlutil::cls();
-    rlutil::setColor(4);
-    DibujarRecuadro(X2-8,2,16,3);
-    rlutil::setColor(15);
-    DibujarRecuadro(X2-23,Y-1,46,6);
-    DibujarTitulo("PRODUCTO NUEVO", 3);
-    MostrarOpcionMenu("Ingrese cantidad del producto:", Y);
-    rlutil::locate(X2, Y + 2);
-    cin>>Cantidad;
-    Prod.setCantidad(Cantidad);
+        rlutil::cls();
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-8,2,16,3);
+        rlutil::setColor(15);
+        DibujarRecuadro(X2-23,Y-1,46,6);
+        DibujarTitulo("PRODUCTO NUEVO", 3);
+        MostrarOpcionMenu("Ingrese cantidad del producto:", Y);
+        rlutil::locate(X2, Y + 2);
+        cin>>Cantidad;
+        Prod.setCantidad(Cantidad);
     if (Prod.getCantidad() == -1)MostrarError("La cantidad ingresada es invalida",12);
     }while(Prod.getCantidad() == -1);
 
     do{
-    rlutil::cls();
-    rlutil::setColor(4);
-    DibujarRecuadro(X2-8,2,16,3);
-    rlutil::setColor(15);
-    DibujarRecuadro(X2-23,Y-1,46,6);
-    DibujarTitulo("PRODUCTO NUEVO", 3);
-    MostrarOpcionMenu("Ingrese precio:", Y);
-    rlutil::locate(X2, Y + 2);
-    cin>>Precio;
-    Prod.setPrecio(Precio);
-    if (Prod.getPrecio() == -1)MostrarError("El precio ingresado es invalido",12);
+        rlutil::cls();
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-8,2,16,3);
+        rlutil::setColor(15);
+        DibujarRecuadro(X2-23,Y-1,46,6);
+        DibujarTitulo("PRODUCTO NUEVO", 3);
+        MostrarOpcionMenu("Ingrese precio:", Y);
+        rlutil::locate(X2, Y + 2);
+        cin>>Precio;
+        Prod.setPrecio(Precio);
+        if (Prod.getPrecio() == -1)MostrarError("El precio ingresado es invalido",12);
     }while(Prod.getPrecio() == -1);
 
     MenuCategorias();   ///falta graficar esto
@@ -260,6 +260,34 @@ void ProductoManager::Mostrar(Producto x, int X, int &Y){
 
 
 }
+void ProductoManager::Mostrar(Producto x){
+  if ((x.getDisponible())==true){
+    int X = ObtenerCentroConsola()- 12;
+    int Y = 4;
+
+    int XX = ObtenerPosicionXCentro("MOSTRANDO PRODUCTO ID: ");
+    rlutil::locate(XX,3);
+    cout<<"MOSTRANDO PRODUCTO ID: "<< x.getID() <<endl;
+
+    rlutil::locate(X, Y + 1);
+    cout << "ID: " << x.getID() << endl;
+    rlutil::locate(X, Y + 2);
+    cout << "Nombre: " << x.getNombre() << endl;
+    rlutil::locate(X, Y + 3);
+    cout << "Descripcion: " << x.getDescripcion() << endl;
+    rlutil::locate(X, Y + 4);
+    cout << "Cantidad: " << x.getCantidad() << endl;
+    rlutil::locate(X, Y + 5);
+    cout << "Precio: " << x.getPrecio() << endl;
+    rlutil::locate(X, Y + 6);
+    cout << "Categoria: " << x.getCategoria() << endl;
+    rlutil::locate(X, Y + 7);
+    cout<<"-----------------------"<<endl;
+
+    }
+
+
+}
 void ProductoManager::Modificar(){
     Producto x;
     int ID, pos,cantP;
@@ -288,50 +316,108 @@ void ProductoManager::Modificar(){
 
 }
 void ProductoManager::Buscar(){
-  /*  int pos,ID;
+    int pos,ID;
     Producto x;
-    cout<<"Ingrese el ID del producto a buscar: "<<endl;
-    cin>>ID;
+     int X = ObtenerCentroConsola();
+
+    DibujarTitulo("BUSCAR POR ID", 3);
+    rlutil::setColor(4);
+    DibujarRecuadro(X-9,2,17,3);//Recuadro Opcion BUSCAR POR ID
+    rlutil::setColor(15);
+
+
+    DibujarRecuadro(X-23,6,46,6);//Recuadro General
+    rlutil::locate(X,1);
+    DibujarTitulo("Ingrese el ID del producto:", 7);
+    rlutil::locate(X, 9);
+    cin >> ID;
+    rlutil::cls();
     pos = ProdArch.buscar(ID);
     if(pos>=0){
         x=ProdArch.leer(pos);
         if (x.getDisponible()){
         Mostrar(x);
         }
-        else{ cout<<"El producto esta dado de baja"<<endl;}
+        else MostrarError("El producto esta dado de baja",12);
 
     }
-    else{ cout<<"El producto no se encuentra"<<endl;}
-    */
+    else MostrarError("El producto no se encuentra",12);
+
 }
 
 void ProductoManager::ListarOrdenado() {
-   /* int cant = ProdArch.getCantidadRegistros();
+    int cant = ProdArch.getCantidadRegistros();
     Producto* Vprod = new Producto[cant];
     if (Vprod == nullptr) {
         cout << "Fallo en la creación de variable" << endl;
         return;
     }
 
-    // Copiar registros del archivo al array
-    ProdArch.CopiarRegVec(Vprod, cant);
 
-    // Ordenar productos por precio
-    ordenarporPrecio(Vprod, cant);
 
-    // Mostrar productos ordenados
-    for (int i = 0; i < cant; i++) {
-        Mostrar(Vprod[i]);
-        cout << "-------------------------------" << endl;
-    }
+    int activos = ProdArch.CopiarRegVec(Vprod, cant);/// Copiar registros del archivo al array
+    ordenarporPrecio(Vprod, cant); /// Ordenar productos por precio
 
-    delete[] Vprod;
-    */
+    int registrosPorPagina = 2;
+    int paginaActual = 0;
+    int totalPaginas = (activos + registrosPorPagina - 1) / registrosPorPagina;
+
+    while (true) {
+        rlutil::cls();
+
+        int X = ObtenerCentroConsola() - 12;
+        int Y = 4;
+        int inicio = paginaActual * registrosPorPagina;
+        int fin = std::min(inicio + registrosPorPagina, activos);
+        int registrosMostrados = 0;
+        int registrosActivosMostrados = 0;
+
+        for (int i = 0; i < cant && registrosActivosMostrados < fin; i++) {
+            if (Vprod[i].getDisponible()){
+                    if (registrosActivosMostrados >= inicio && registrosActivosMostrados < fin){
+                      Mostrar(Vprod[i],X,Y);
+                      Y += 9;
+                      registrosMostrados++;
+                    }
+                    registrosActivosMostrados++;
+
+            }
+
+
+        }
+        int XXX = ObtenerPosicionXCentro("MOSTRANDO PRODUCTOS");
+        rlutil::locate(XXX, 2);
+        std::cout << "MOSTRANDO " << activos << "  PODUCTOS";
+        rlutil::setColor(4);
+        DibujarRecuadro(XXX-1,1,24,3);
+        rlutil::setColor(15);
+
+        int XX = ObtenerPosicionXCentro("Pagina X/X - Use las flechas para navegar");
+        rlutil::locate(XX, rlutil::trows() - 2); //trows es de rlutil, es para que te devuelva la cantidad de filas de la consola
+        std::cout << "Pagina " << (paginaActual + 1) << " de " << totalPaginas;
+        rlutil::locate(XX, rlutil::trows() - 1);
+        std::cout << "Use las flechas para navegar. ESC para salir.";
+
+        // entrada del usuario
+        int key = rlutil::getkey();
+        if (key == rlutil::KEY_RIGHT && paginaActual < totalPaginas - 1) {
+            paginaActual++;
+        } else if (key == rlutil::KEY_LEFT && paginaActual > 0) {
+            paginaActual--;
+        } else if (key == rlutil::KEY_ESCAPE) {
+            break; // Salir si se presiona ESC
+        }
+
+
+
+
+}
+delete[] Vprod;
 }
 
 
 void ProductoManager::ordenarporPrecio(Producto* v, int cant) {
-   /* int i, j, posmin;
+    int i, j, posmin;
     Producto AUX;
     for (i = 0; i < cant - 1; i++) {
         posmin = i;
@@ -346,35 +432,74 @@ void ProductoManager::ordenarporPrecio(Producto* v, int cant) {
             v[posmin] = AUX;
         }
     }
-    */
+
 }
 
 
  void ProductoManager::copiaSeguridad(){
-    bool hacercopia;
-    cout<<"¿Realmente quiere realizar una copia de seguridad? 1 - SI / 0 - NO"<<endl;
-    cin>>hacercopia;
-    if(hacercopia){
+    char opcion;
+    int X = ObtenerPosicionXCentro("¿Realmente quiere realizar una copia de seguridad? 1 - SI / 0 - NO");
+    int X1 = ObtenerPosicionXCentro("La copia de seguridad se ha realizado con exito");
+    int X2 = ObtenerPosicionXCentro("No se pudo realizar la copia de seguridad");
+    int X3 = ObtenerPosicionXCentro("No se ha realizado la copia.");
+
+    rlutil::locate(X,2);
+    cout<<"¿Realmente quiere realizar una copia de seguridad? S - SI / N - NO"<<endl;
+    do{
+    opcion = rlutil::getkey();
+    opcion = toupper(opcion);
+    }while(opcion!='S' && opcion!='N');
+
+    rlutil::cls();
+
+    if(opcion=='S'){
         if(ProdArch.realizarCopia("Productos.bkp")){
+            rlutil::locate(X1,2);
             cout<<"La copia de seguridad se ha realizado con exito"<<endl;
         }
-        else cout<<"No se pudo realizar la copia de seguridad"<<endl;
+
+        else{
+            rlutil::locate(X2,2);
+            cout<<"No se pudo realizar la copia de seguridad"<<endl;
+        }
     }
-    else cout<<"No se ha realizado la copia"<<endl;
+
+    else{
+        rlutil::locate(X3,2);
+        cout<<"No se ha realizado la copia."<<endl;
+    }
+    rlutil::anykey();
 }
 
 void ProductoManager::restaurarCopiaSeguridad(){
-    bool restcopia;
-    cout<<"¿Realmente quiere restaurar la copia de seguridad? 1 - SI / 0 - NO"<<endl;
-    cin>>restcopia;
-    if(restcopia){
+    char opcion;
+    int X = ObtenerPosicionXCentro("Realmente quiere restaurar la copia de seguridad? Presione S/Si o N/No");
+    int X1 = ObtenerPosicionXCentro("La copia de seguridad se ha restaurado con exito");
+    int X2 = ObtenerPosicionXCentro("No se pudo restaurar la copia de seguridad");
+    int X3 = ObtenerPosicionXCentro("No se ha restaurado la copia");
+    rlutil::locate(X,2);
+    std::cout << "Realmente quiere restaurar la copia de seguridad? Presione S/Si o N/No" << std::endl;
+    do {
+        opcion = rlutil::getkey();
+        opcion = toupper(opcion);
+    } while (opcion != 'S' && opcion != 'N');
+    rlutil::cls();
+    if(opcion=='S'){
         if(ProdArch.restaurarCopia("Productos.bkp")){
+            rlutil::locate(X1,2);
             cout<<"La copia de seguridad se ha restaurado con exito"<<endl;
         }
-        else cout<<"No se pudo restaurar la copia de seguridad"<<endl;
-    }
-    else cout<<"No se ha restaurado la copia"<<endl;
 
+        else{
+            rlutil::locate(X2,2);
+            cout<<"No se pudo restaurar la copia de seguridad"<<endl;
+       }
+    }
+    else{
+        rlutil::locate(X3,2);
+        cout<<"No se ha restaurado la copia"<<endl;
+    }
+    rlutil::anykey();
 }
 
 void ProductoManager::Menu(){

@@ -19,7 +19,7 @@ public:
     bool realizarCopia(std::string filename = "Productos.bak");
     bool restaurarCopia(std::string filename = "Productos.bak");
 
-    void CopiarRegVec(Producto *v,int cant);
+    int CopiarRegVec(Producto *v,int cant);
 
 
 

@@ -7,46 +7,99 @@ using namespace std;
     Reserva ReservaManager::Crear(){
     int Numero, NumeroMesa, NumeroPersonas, IDCliente, IDProducto;
     Fecha fecha;
+    int Y = 7; // Eje Y
+    int X2 = ObtenerCentroConsola();
+
+    DibujarTitulo("RESERVA NUEVA", 3);
+    rlutil::setColor(4);
+    DibujarRecuadro(X2-8,2,16,3);
+    rlutil::setColor(15);
+    DibujarRecuadro(X2-23,Y-1,46,6);
+
     do{
-    cout<<"Ingrese numero de reserva: "<<endl;
-    cin>>Numero;
-    if (ResArch.buscar(Numero)>-1)cout<<"Ya existe una reserva con ese numero"<<endl;
-    Res.setNumero(Numero);
-    if (Res.getNumero() == -1)cout<<"El numero ingresado es invalido"<<endl;
+        rlutil::cls();
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-8,2,16,3);
+        rlutil::setColor(15);
+        DibujarRecuadro(X2-23,Y-1,46,6);
+        DibujarTitulo("RESERVA NUEVA", 3);
+        MostrarOpcionMenu("Ingrese numero de reserva:", Y);
+        rlutil::locate(X2, Y + 2);
+        cin>>Numero;
+        if (ResArch.buscar(Numero)>-1)MostrarError("Ya existe una reserva con ese numero",12);
+        Res.setNumero(Numero);
+        if (Res.getNumero() == -1)MostrarError("El numero ingresado es invalido",12);
     }while(Res.getNumero() == -1 || ResArch.buscar(Numero)>-1);
+
     do{
-    cout<<"Ingrese numero de personas: "<<endl;
-    cin>>NumeroPersonas;
-    Res.setNumeroPersonas(NumeroPersonas);
-    if (Res.getNumeroPersonas() == -1)cout<<"La cantidad ingresada es invalida"<<endl;
+        rlutil::cls();
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-8,2,16,3);
+        rlutil::setColor(15);
+        DibujarRecuadro(X2-23,Y-1,46,6);
+        DibujarTitulo("RESERVA NUEVA", 3);
+        MostrarOpcionMenu("Ingrese numero de personas:", Y);
+        rlutil::locate(X2, Y + 2);
+
+        cin>>NumeroPersonas;
+        Res.setNumeroPersonas(NumeroPersonas);
+        if (Res.getNumeroPersonas() == -1)MostrarError("La cantidad ingresada es invalida",12);
     }while(Res.getNumeroPersonas() == -1);
 
-    cout<<"Ingrese Fecha de la reserva: "<<endl;
+    rlutil::cls();
+    rlutil::setColor(4);
+    DibujarRecuadro(X2-8,2,16,3);
+    rlutil::setColor(15);
+    DibujarRecuadro(X2-23,Y-1,46,6);
+    DibujarTitulo("RESERVA NUEVA", 3);
+    MostrarOpcionMenu("Ingrese fecha:", Y);
     fecha.CargarFecha(true);
 
     do{
-    cout<<"Ingrese numero de mesa: "<<endl; ///deberiamos hacer una validacion para ver si la mesa está disponible aprovechando que ya hay una funcion que va a buscar las mesas disponibles
-    cin>>NumeroMesa;
+        rlutil::cls();
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-8,2,16,3);
+        rlutil::setColor(15);
+        DibujarRecuadro(X2-23,Y-1,46,6);
+        DibujarTitulo("RESERVA NUEVA", 3);
+        MostrarOpcionMenu("Ingrese numero de mesa: ", Y);
+        rlutil::locate(X2, Y + 2);
+        cin>>NumeroMesa;
 
-    if(VerificarMesaDisp(NumeroMesa,fecha)==false){
-        cout<<"En la fecha ingresada, la mesa "<<NumeroMesa<<" no esta disponible"<<endl;
-    }
+        if(VerificarMesaDisp(NumeroMesa,fecha)==false){
+            MostrarError("En la fecha ingresada, la mesa ingresada no esta disponible",12);
+        }
 
-    Res.setNumeroMesa(NumeroMesa);
-    if (Res.getNumeroMesa() == -1)cout<<"La numero ingresado es invalido"<<endl;
+        Res.setNumeroMesa(NumeroMesa);
+        if (Res.getNumeroMesa() == -1)MostrarError("La numero ingresado es invalido",12);
     }while(Res.getNumeroMesa() == -1 || VerificarMesaDisp(NumeroMesa,fecha)==false);
 
     do{
-    cout<<"Ingrese numero de ID del cliente: "<<endl;
-    cin>>IDCliente;
-    Res.setIDCliente(IDCliente);
-    if (Res.getIDCliente() == -1)cout<<"El ID ingresado es invalido"<<endl;
+        rlutil::cls();
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-8,2,16,3);
+        rlutil::setColor(15);
+        DibujarRecuadro(X2-23,Y-1,46,6);
+        DibujarTitulo("RESERVA NUEVA", 3);
+        MostrarOpcionMenu("Ingrese numero de ID del cliente:", Y);
+        rlutil::locate(X2, Y + 2);
+        cin>>IDCliente;
+        Res.setIDCliente(IDCliente);
+        if (Res.getIDCliente() == -1)MostrarError("El ID ingresado es invalido",12);
     }while(Res.getIDCliente() == -1);
+
     do{
-    cout<<"Ingrese ID del producto: "<<endl;
-    cin>>IDProducto;
-    Res.setIDProducto(IDProducto);
-    if (Res.getIDProducto() == -1)cout<<"El ID ingresado es invalido"<<endl;
+        rlutil::cls();
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-8,2,16,3);
+        rlutil::setColor(15);
+        DibujarRecuadro(X2-23,Y-1,46,6);
+        DibujarTitulo("RESERVA NUEVA", 3);
+        MostrarOpcionMenu("Ingrese ID del producto:", Y);
+        rlutil::locate(X2, Y + 2);
+        cin>>IDProducto;
+        Res.setIDProducto(IDProducto);
+        if (Res.getIDProducto() == -1)MostrarError("El ID ingresado es invalido",12);
     }while(Res.getIDProducto() == -1);
 
 
@@ -274,55 +327,78 @@ void ReservaManager::Modificar(){
 }
 
 void ReservaManager::Menu(){
-    int Opcion;
-    while(true){
-        system("cls");
-        cout<<"---- MENU ----"<<endl;
-        cout<<"1 - CARGAR RESERVA"<<endl;
-        cout<<"2 - DAR DE BAJA RESERVA"<<endl;
-        cout<<"3 - LISTAR RESERVAS"<<endl;
-        cout<<"4 - MODIFICAR PRODUCTO RESERVADO"<<endl;
-        cout<<"6 - LISTAR MESAS DISPONIBLES"<<endl;
-        cout<<"5 - BUSCAR RESERVA POR FECHA"<<endl; ///HAY QUE ARREGLAR ESTO PARA QUE SE MUESTREN TODAS LAS RESERVAS QUE HAY PARA LA FECHA
-        cout<<"6 - LISTAR MESAS DISPONIBLES"<<endl;
-        cout<<"7 - REALIZAR COPIA DE SEGURUIDAD"<<endl;
-        cout<<"8 - RESTAURAR COPIA DE SEGURIDAD"<<endl;
-        cout<<"0 - SALIR"<<endl;
-        cin>>Opcion;
-            switch(Opcion){
-            case 1:
-                Cargar();
-                break;
-            case 2:
-                bajaLogica();
-                break;
-            case 3:
-                Listar();
-                break;
-            case 4:
-                Modificar();
-                break;
-            case 5:
-                Buscar();
-                break;
-            case 6:
-                BuscarMesasXFecha();
-                break;
+     int opcion = 1;
+    do {
+        rlutil::cls();
+        rlutil::hidecursor();
+        MostrarMenuReservas(opcion);
 
-            case 7:
-                CopiaSeguridad();
+        int Key = rlutil::getkey();
+
+        switch (Key) {
+            case rlutil::KEY_UP:
+                opcion--;
+                if (opcion < 1) opcion = 9;
                 break;
-            case 8:
-                RestaurarCopiaSeguridad();
+            case rlutil::KEY_DOWN:
+                opcion++;
+                if (opcion > 9) opcion = 1;
                 break;
-            case 0:
-                return;
+            case rlutil::KEY_ENTER:
+                switch (opcion) {
+                    case 1:
+                        rlutil::cls();
+                        Cargar();
+                        rlutil::anykey();
+                        break;
+                    case 2:
+                        rlutil::cls();
+                        bajaLogica();
+                        rlutil::anykey();
+                        break;
+                    case 3:
+                        rlutil::cls();
+                        Listar();
+                        rlutil::anykey();
+                        break;
+                    case 4:
+                        rlutil::cls();
+                        Modificar();
+                        rlutil::anykey();
+                        break;
+                    case 5:
+                        rlutil::cls();
+                        Buscar();
+                        rlutil::anykey();
+                        break;
+                    case 6:
+                        rlutil::cls();
+                        BuscarMesasXFecha();
+                        rlutil::anykey();
+                        break;
+                    case 7:
+                        rlutil::cls();
+                        CopiaSeguridad();
+                        rlutil::anykey();
+                        break;
+                    case 8:
+                        rlutil::cls();
+                        RestaurarCopiaSeguridad();
+                        rlutil::anykey();
+                        break;
+                    case 9:
+                        rlutil::cls();
+                        cout << "Saliendo del Menu Reservas..." << endl;
+                        rlutil::setColor(rlutil::COLOR::WHITE);
+                        opcion = 0;
+                        break;
+                    default:
+                        break;
+                }
                 break;
             default:
-                cout<<"Opcion invalida"<<endl;
                 break;
-            }
+        }
 
-            system("pause");
-}
+    } while (opcion != 0);
 }

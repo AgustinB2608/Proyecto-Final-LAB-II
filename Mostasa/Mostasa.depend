@@ -307,17 +307,17 @@
 1718325422 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productos.h
 	<string>
 
-1719001203 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productosarchivo.cpp
+1719448876 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productosarchivo.cpp
 	"../Productos/ProductosArchivo.h"
 	<iostream>
 	<string>
 	<cstring>
 
-1719001211 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productosarchivo.h
+1719448856 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productosarchivo.h
 	<iostream>
 	"../Productos/Productos.h"
 
-1719442099 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productosmanager.cpp
+1719453771 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productosmanager.cpp
 	"../Productos/ProductosManager.h"
 	"../Funciones/ValidacionesGlobales.h"
 	<iostream>
@@ -325,7 +325,7 @@
 	<cstring>
 	"../Funciones\FuncionesGraficas\globales.h"
 
-1719440749 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productosmanager.h
+1719447718 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productosmanager.h
 	"../Productos/Productos.h"
 	"../Productos/ProductosArchivo.h"
 
@@ -545,7 +545,7 @@
 	<regex>
 	"../Fecha/Fecha.h"
 
-1719437223 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\funciones\funcionesgraficas\globales.h
+1719454246 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\funciones\funcionesgraficas\globales.h
 	"../Funciones\FuncionesGraficas\rlutil.h"
 
 1719172031 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\funciones\funcionesgraficas\rlutil.h
@@ -585,7 +585,7 @@
 	<string>
 	<cstring>
 
-1719372770 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas\reservasmanager.cpp
+1719454186 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas\reservasmanager.cpp
 	"ReservasManager.h"
 	<iostream>
 	<string>
