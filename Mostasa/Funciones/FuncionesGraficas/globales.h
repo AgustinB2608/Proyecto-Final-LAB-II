@@ -80,14 +80,10 @@ inline void MostrarMenuPrincipal (int opcion) {
 
     rlutil::setColor(opcion == 4 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
     rlutil::locate(posXCentro, posY + 5);
-    std::cout << "MENU CONFIGURACION" << std::endl;
+    std::cout << "INFORMACION" << std::endl;
 
     rlutil::setColor(opcion == 5 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
     rlutil::locate(posXCentro, posY + 7);
-    std::cout << "XXXXXXXXXXXXXXXXXX" << std::endl;
-
-    rlutil::setColor(opcion == 6 ? rlutil::COLOR::DARKGREY : rlutil::COLOR::WHITE);
-    rlutil::locate(posXCentro, posY + 9);
     std::cout << "SALIR" << std::endl;
 
     rlutil::setColor(rlutil::COLOR::GREY);

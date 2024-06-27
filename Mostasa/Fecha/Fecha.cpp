@@ -39,22 +39,31 @@ void Fecha::setAnio(int anio) {
 
 void Fecha::CargarFecha(bool esReserva) {
     bool fechaValida = false;
+    const int Y = 7;
+    const int X = ObtenerCentroConsola();
     while (!fechaValida) {
-        cout << "Dia: ";
-        cin >> _dia;
-        cout << "Mes: ";
-        cin >> _mes;
-        cout << "Anio: ";
-        cin >> _anio;
+
+        MostrarOpcionMenu("Ingrese la Fecha (DD/MM/AAAA):", 7);
+        rlutil::locate(X, 7 + 2);
+        std::cin >> _dia;
+        rlutil::locate(X + 2, Y + 2);
+        std::cout << "/";
+        rlutil::locate(X + 3, Y + 2);
+        std::cin >> _mes;
+        rlutil::locate(X + 5, Y + 2);
+        std::cout << "/";
+        rlutil::locate(X + 6, Y + 2);
+        std::cin >> _anio;
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
         if (ValidarFecha() && (!esReserva || FechaPosteriorMinimoDosDias(*this))) {
             fechaValida = true;
         } else {
-            cout << "La fecha ingresada no es valida";
+            MostrarError("La fecha ingresada no es valida",12);
             if (esReserva) {
-                cout << " o no es al menos dos días posterior a la fecha actual.";
+                MostrarError(" o no es al menos dos dias posterior a la fecha actual.",12);
             }
-            cout << " Por favor, ingrese una fecha valida." << endl;
         }
     }
 }

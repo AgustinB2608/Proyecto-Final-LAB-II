@@ -369,32 +369,57 @@ void ReservaManager::ListarMesas(Fecha fecha){
     }
 
 }
+
 void ReservaManager::Modificar(){
     Reserva x;
-    int Numero, pos,IDprod;
-    cout<<"Ingrese numero de reserva a modificar: "<<endl;
-    cin>>Numero;
+    int Numero, pos, IDprod;
+    int Y = 7; // Eje Y
+    int X2 = ObtenerCentroConsola();
+
+    DibujarTitulo("MODIFICAR RESERVA", 3);
+    rlutil::setColor(4);
+    DibujarRecuadro(X2-10, 2, 20, 3); // Recuadro Opción MODIFICAR RESERVA
+    rlutil::setColor(15);
+    DibujarRecuadro(X2-23,Y-1,46,6);//Recuadro General
+
+    // Pedir el nmero de reserva a modificar
+    MostrarOpcionMenu("Ingrese numero de reserva a modificar:", Y);
+    rlutil::locate(X2, Y + 2);
+    std::cin >> Numero;
+    std::cin.ignore(); // Limpiar el buffer de entrada
 
     pos = ResArch.buscar(Numero);
 
     if (pos >= 0) {
         x = ResArch.leer(pos);
-        if(x.getEstado()==false){
-                cout<<"La reserva esta dado de baja"<<endl;
-                system("pause");
-                return;
+        if (x.getEstado() == false) {
+            MostrarError("La reserva esta dada de baja", Y + 5);
+            rlutil::anykey();
+            return;
         }
 
-    cout<<"Ingrese el ID del nuevo producto: "<<endl;
-    cin>>IDprod;
-    x.setIDProducto(IDprod);
-    if(ResArch.Modificar(x,pos)){
-            cout<<"Se ha modificado correctamente"<<endl;
+        // Pedir el nuevo ID del producto
+        rlutil::cls();
+        rlutil::setColor(4);
+        DibujarRecuadro(X2-10, 2, 20, 3); // Recuadro Opción MODIFICAR RESERVA
+        rlutil::setColor(15);
+        DibujarRecuadro(X2-23, Y-1, 46, 6); // Recuadro General
+        DibujarTitulo("MODIFICAR RESERVA", 3);
+        MostrarOpcionMenu("Ingrese el ID del nuevo producto:", Y);
+        rlutil::locate(X2, Y + 2);
+        std::cin >> IDprod;
+        std::cin.ignore(); // Limpiar el buffer de entrada
+
+        x.setIDProducto(IDprod);
+
+        if (ResArch.Modificar(x, pos)) {
+            MostrarConfirmacion("Se ha modificado correctamente", Y + 5);
+        } else {
+            MostrarError("No se pudo modificar el producto", Y + 5);
         }
-        else  cout<<"No se puedo modificar el producto"<<endl;
+    } else {
+        MostrarError("No se pudo modificar, la reserva no existe", Y + 5);
     }
-    else{cout<<"No se pudo modificar, el producto no existe"<<endl;}
-
 }
 
 void ReservaManager::Menu(){
@@ -459,7 +484,7 @@ void ReservaManager::Menu(){
                         break;
                     case 9:
                         rlutil::cls();
-                        cout << "Saliendo del Menu Reservas..." << endl;
+                        MostrarConfirmacion("Saliendo del Menu Reservas...",12);
                         rlutil::setColor(rlutil::COLOR::WHITE);
                         opcion = 0;
                         break;

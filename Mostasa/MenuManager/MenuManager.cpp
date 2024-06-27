@@ -17,11 +17,11 @@ void MenuManager::Menu() {
         switch (Key) {
             case rlutil::KEY_UP:
                 opcion--;
-                if (opcion < 1) opcion = 6;
+                if (opcion < 1) opcion = 5;
                 break;
             case rlutil::KEY_DOWN:
                 opcion++;
-                if (opcion > 6) opcion = 1;
+                if (opcion > 5) opcion = 1;
                 break;
             case rlutil::KEY_ENTER:
                 switch (opcion) {
@@ -42,11 +42,12 @@ void MenuManager::Menu() {
                         break;
                     case 4:
                         rlutil::cls();
+                        //MostrarMenuInformacion();
                         rlutil::anykey();
                         break;
-                    case 6:
+                    case 5:
                         rlutil::cls();
-                        cout << "Saliendo del Menu Clientes..." << endl;
+                        MostrarConfirmacion("Saliendo de Mostasa. :)",12);
                         rlutil::setColor(rlutil::COLOR::WHITE);
                         opcion = 0;
                         break;

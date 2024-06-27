@@ -302,49 +302,103 @@ void ClienteManager::Mostrar(Cliente C) {
 
 void ClienteManager::Modificar() {
     Cliente C;
-    C.setActivo(false);
     int ID, pos;
-    cout << "Ingresar ID: " << endl;
-    cin >> ID;
+    int Y = 7; // Eje Y
+    int X2 = ObtenerCentroConsola();
 
+    rlutil::cls();
+    rlutil::setColor(4);
+    DibujarRecuadro(X2-13,2,25,3);
+    rlutil::setColor(15);
+    DibujarRecuadro(X2-23,Y-1,46,6);
+    DibujarTitulo("MODIFICAR DATOS CLIENTE", 3);
+    MostrarOpcionMenu("Ingresar ID:", Y);
+    rlutil::locate(X2, Y + 2);
+    std::cin >> ID;
+    std::cin.ignore();
     pos = ClienteArc.buscar(ID);
 
     if (pos >= 0) {
         C = ClienteArc.leer(pos);
 
-        string Nombre, Email, Telefono, DNI;
+        std::string Nombre, Email, Telefono, DNI;
         Fecha fecha;
 
-        cout << "Modificar Nombre (actual: " << C.getNombreCliente() << "): " << endl;
-        cin.ignore();
-        getline(cin, Nombre);
+        do {
+            rlutil::cls();
+            rlutil::setColor(4);
+            DibujarRecuadro(X2-13,2,25,3);
+            rlutil::setColor(15);
+            DibujarRecuadro(X2-23,Y-1,46,6);
+            DibujarTitulo("MODIFICAR DATOS CLIENTE", 3);
+            MostrarOpcionMenu("Modificar Nombre (actual: " + C.getNombreCliente() + "):", Y);
+            rlutil::locate(X2, Y + 2);
+            std::getline(std::cin, Nombre);
+            if (Nombre.length() > 30 || tieneDigitos(Nombre) || Nombre.empty()) {
+                MostrarError("Nombre invalido. Debe tener menos de 30 caracteres, no contener digitos y no estar vacio.", Y + 5);}
+        } while (Nombre.length() > 30 || tieneDigitos(Nombre) || Nombre.empty());
         C.setNombreCliente(Nombre);
 
-        cout << "Modificar Email (actual: " << C.getEmailCliente() << "): " << endl;
-        getline(cin, Email);
+        do {
+            rlutil::cls();
+            rlutil::setColor(4);
+            DibujarRecuadro(X2-13,2,25,3);
+            rlutil::setColor(15);
+            DibujarRecuadro(X2-23,Y-1,46,6);
+            DibujarTitulo("MODIFICAR DATOS CLIENTE", 3);
+            MostrarOpcionMenu("Modificar Email (actual: " + C.getEmailCliente() + "):", Y);
+            rlutil::locate(X2, Y + 2);
+            std::getline(std::cin, Email);
+            if (!validarEmail(Email) || Email.empty()) {
+                MostrarError("Email invalido. Debe ser example@example.com", Y + 5);}
+        } while (!validarEmail(Email) || Email.empty());
         C.setEmailCliente(Email);
 
-        cout << "Modificar Teléfono (actual: " << C.getTelefonoCliente() << "): " << endl;
-        getline(cin, Telefono);
+        do {
+            rlutil::cls();
+            rlutil::setColor(4);
+            DibujarRecuadro(X2-13,2,25,3);
+            rlutil::setColor(15);
+            DibujarRecuadro(X2-23,Y-1,46,6);
+            DibujarTitulo("MODIFICAR DATOS CLIENTE", 3);
+            MostrarOpcionMenu("Modificar Telefono (actual: " + C.getTelefonoCliente() + "):", Y);
+            rlutil::locate(X2, Y + 2);
+            std::getline(std::cin, Telefono);
+            if (Telefono.length() < 10 || Telefono.length() > 15 || Telefono.empty()) {
+                MostrarError("Numero de Telefono invalido. Debe tener entre 10 y 15 digitos y no estar vacio.", Y + 5);}
+        } while (Telefono.length() < 10 || Telefono.length() > 15 || Telefono.empty());
         C.setTelefonoCliente(Telefono);
 
-        cout << "Modificar DNI (actual: " << C.getDNICliente() << "): " << endl;
-        getline(cin, DNI);
+        do {
+            rlutil::cls();
+            rlutil::setColor(4);
+            DibujarRecuadro(X2-13,2,25,3);
+            rlutil::setColor(15);
+            DibujarRecuadro(X2-23,Y-1,46,6);
+            DibujarTitulo("MODIFICAR DATOS CLIENTE", 3);
+            MostrarOpcionMenu("Modificar DNI (actual: " + C.getDNICliente() + "):", Y);
+            rlutil::locate(X2, Y + 2);
+            std::getline(std::cin, DNI);
+            if (DNI.length() != 8 || DNI.empty()) {
+                MostrarError("DNI invalido. Debe tener 8 digitos y no estar vacio.", Y + 5);}
+        } while (DNI.length() != 8 || DNI.empty());
         C.setDNICliente(DNI);
 
-        cout << "Fecha: " << endl;
-        fecha.CargarFecha(false);
+        rlutil::cls();
+        MostrarOpcionMenu("Modificar Fecha:", Y);
+        fecha.CargarFechaCliente();
         C.setFechaCreacion(fecha);
 
         if (ClienteArc.Modificar(C, pos)) {
-            MostrarConfirmacion("Modificado correctamente",12);
+            MostrarConfirmacion("Modificado correctamente", Y + 5);
         } else {
-            MostrarError("No se pudo modificar",12);
+            MostrarError("No se pudo modificar", Y + 5);
         }
     } else {
-        MostrarError("No se pudo modificar, el cliente no existe",12);
+        MostrarError("No se pudo modificar, el cliente no existe", Y + 5);
     }
 }
+
 
 void ClienteManager::Buscar() {
     int pos, ID;
@@ -440,6 +494,7 @@ void ClienteManager::CopiaSeguridad() {
     rlutil::anykey(); // Esperar a que se presione cualquier tecla para continuar
     rlutil::cls();    // Limpiar la pantalla nuevamente si es necesario
 }
+
 void ClienteManager::RestaurarCopiaSeguridad() {
     char opcion;
     int X = ObtenerPosicionXCentro("Realmente quiere restaurar la copia de seguridad? Presione S/Si o N/No");
@@ -468,7 +523,6 @@ void ClienteManager::RestaurarCopiaSeguridad() {
     rlutil::anykey();
     rlutil::cls();
 }
-
 
 void ClienteManager::Menu() {
     int opcion = 1;
@@ -530,7 +584,7 @@ void ClienteManager::Menu() {
                         break;
                     case 9:
                         rlutil::cls();
-                        cout << "Saliendo del Menu Clientes..." << endl;
+                        MostrarConfirmacion("Saliendo del Menu Clientes...",12);
                         rlutil::setColor(rlutil::COLOR::WHITE);
                         opcion = 0;
                         break;
@@ -541,7 +595,6 @@ void ClienteManager::Menu() {
             default:
                 break;
         }
-
     } while (opcion != 0);
 }
 

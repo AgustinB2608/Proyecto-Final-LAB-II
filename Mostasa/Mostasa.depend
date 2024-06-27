@@ -352,7 +352,7 @@
 	<cstdio>
 	"../Clientes\Clientes.h"
 
-1719432049 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.cpp
+1719464868 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\clientes\clientesmanager.cpp
 	"../Clientes/ClientesManager.h"
 	"../Funciones/ValidacionesGlobales.h"
 	<iostream>
@@ -365,7 +365,7 @@
 	"../Clientes/Clientes.h"
 	"../Clientes/ClientesArchivo.h"
 
-1719428004 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\fecha\fecha.cpp
+1719470126 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\fecha\fecha.cpp
 	<iostream>
 	<ctime>
 	"Fecha.h"
@@ -373,7 +373,7 @@
 	"../Funciones\FuncionesGraficas\rlutil.h"
 	"../Funciones\FuncionesGraficas\globales.h"
 
-1719431613 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\main.cpp
+1719468778 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\main.cpp
 	<iostream>
 	"../MenuManager\MenuManager.h"
 	"../Clientes/Clientes.h"
@@ -384,7 +384,7 @@
 	"../Clientes\ClientesManager.h"
 	"../Reservas/ReservasManager.h"
 
-1719286676 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\menumanager\menumanager.cpp
+1719470832 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\menumanager\menumanager.cpp
 	"../MenuManager\MenuManager.h"
 	"../Funciones\FuncionesGraficas\rlutil.h"
 	"../Funciones\FuncionesGraficas\globales.h"
@@ -399,23 +399,25 @@
 1718871457 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productos.h
 	<string>
 
-1719044505 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productosarchivo.cpp
+1719462996 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productosarchivo.cpp
 	"../Productos/ProductosArchivo.h"
 	<iostream>
 	<string>
 	<cstring>
 
-1719044505 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productosarchivo.h
+1719462996 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productosarchivo.h
 	<iostream>
 	"../Productos/Productos.h"
 
-1719272985 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productosmanager.cpp
+1719469197 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productosmanager.cpp
 	"../Productos/ProductosManager.h"
+	"../Funciones/ValidacionesGlobales.h"
 	<iostream>
 	<string>
 	<cstring>
+	"../Funciones\FuncionesGraficas\globales.h"
 
-1718871457 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productosmanager.h
+1719462996 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\productos\productosmanager.h
 	"../Productos/Productos.h"
 	"../Productos/ProductosArchivo.h"
 
@@ -489,7 +491,7 @@
 	"Reservas.h"
 	"ReservasArchivo.h"
 
-1719433825 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\reservas\reservasmanager.h
+1719462996 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\reservas\reservasmanager.h
 	"../Reservas/Reservas.h"
 	"../Reservas/ReservasArchivo.h"
 
@@ -512,18 +514,19 @@
 	<string>
 	<cstring>
 
-1719433825 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\reservas\reservasmanager.cpp
+1719470593 source:c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\reservas\reservasmanager.cpp
 	"ReservasManager.h"
 	<iostream>
 	<string>
 	<cstring>
 	"../Funciones\FuncionesGraficas\globales.h"
 
-1719278318 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\funciones\validacionesglobales.h
+1719462996 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\funciones\validacionesglobales.h
 	<string>
 	<regex>
+	"../Fecha/Fecha.h"
 
-1719433101 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\funciones\funcionesgraficas\globales.h
+1719470689 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\funciones\funcionesgraficas\globales.h
 	"../Funciones\FuncionesGraficas\rlutil.h"
 
 1718728555 c:\users\berna\onedrive - frgp.utn.edu.ar\programacion\laboratorio de computación ii\2024\proyecto-final-lab-ii\mostasa\funciones\funcionesgraficas\rlutil.h
