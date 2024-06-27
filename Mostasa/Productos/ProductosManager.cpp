@@ -153,6 +153,8 @@ void ProductoManager::Cargar(){
         MostrarConfirmacion("Producto guardado con exito :D",18);
     }
     else{MostrarError("No se pudo guardar el producto",18);}
+
+
 }
 
 void ProductoManager::bajaLogica(){

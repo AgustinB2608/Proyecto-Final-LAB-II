@@ -5,6 +5,7 @@
 #include "../Funciones\FuncionesGraficas\globales.h"
 using namespace std;
     Reserva ReservaManager::Crear(){
+    Reserva res2;
     int Numero, NumeroMesa, NumeroPersonas, IDCliente, IDProducto;
     Fecha fecha;
     int Y = 7; // Eje Y
@@ -27,9 +28,11 @@ using namespace std;
         rlutil::locate(X2, Y + 2);
         cin>>Numero;
         if (ResArch.buscar(Numero)>-1)MostrarError("Ya existe una reserva con ese numero",12);
-        Res.setNumero(Numero);
-        if (Res.getNumero() == -1)MostrarError("El numero ingresado es invalido",12);
-    }while(Res.getNumero() == -1 || ResArch.buscar(Numero)>-1);
+        res2.setNumero(Numero);
+        if (res2.getNumero() == -1)MostrarError("El numero ingresado es invalido",12);
+    }while(res2.getNumero() == -1 || ResArch.buscar(Numero)>-1);
+
+      rlutil::anykey();
 
     do{
         rlutil::cls();
@@ -42,9 +45,9 @@ using namespace std;
         rlutil::locate(X2, Y + 2);
 
         cin>>NumeroPersonas;
-        Res.setNumeroPersonas(NumeroPersonas);
-        if (Res.getNumeroPersonas() == -1)MostrarError("La cantidad ingresada es invalida",12);
-    }while(Res.getNumeroPersonas() == -1);
+         res2.setNumeroPersonas(NumeroPersonas);
+        if (res2.getNumeroPersonas() == -1)MostrarError("La cantidad ingresada es invalida",12);
+    }while(res2.getNumeroPersonas() == -1);
 
     rlutil::cls();
     rlutil::setColor(4);
@@ -70,9 +73,9 @@ using namespace std;
             MostrarError("En la fecha ingresada, la mesa ingresada no esta disponible",12);
         }
 
-        Res.setNumeroMesa(NumeroMesa);
-        if (Res.getNumeroMesa() == -1)MostrarError("La numero ingresado es invalido",12);
-    }while(Res.getNumeroMesa() == -1 || VerificarMesaDisp(NumeroMesa,fecha)==false);
+        res2.setNumeroMesa(NumeroMesa);
+        if (res2.getNumeroMesa() == -1)MostrarError("La numero ingresado es invalido",12);
+    }while(res2.getNumeroMesa() == -1 || VerificarMesaDisp(NumeroMesa,fecha)==false);
 
     do{
         rlutil::cls();
@@ -84,9 +87,9 @@ using namespace std;
         MostrarOpcionMenu("Ingrese numero de ID del cliente:", Y);
         rlutil::locate(X2, Y + 2);
         cin>>IDCliente;
-        Res.setIDCliente(IDCliente);
-        if (Res.getIDCliente() == -1)MostrarError("El ID ingresado es invalido",12);
-    }while(Res.getIDCliente() == -1);
+        res2.setIDCliente(IDCliente);
+        if (res2.getIDCliente() == -1)MostrarError("El ID ingresado es invalido",12);
+    }while(res2.getIDCliente() == -1);
 
     do{
         rlutil::cls();
@@ -98,16 +101,19 @@ using namespace std;
         MostrarOpcionMenu("Ingrese ID del producto:", Y);
         rlutil::locate(X2, Y + 2);
         cin>>IDProducto;
-        Res.setIDProducto(IDProducto);
-        if (Res.getIDProducto() == -1)MostrarError("El ID ingresado es invalido",12);
-    }while(Res.getIDProducto() == -1);
+        res2.setIDProducto(IDProducto);
+        if (res2.getIDProducto() == -1)MostrarError("El ID ingresado es invalido",12);
+    }while(res2.getIDProducto() == -1);
 
 
-    Res.setFecha(fecha);
+    res2.setFecha(fecha);
 
-    Res.setEstado(true);
+    res2.setEstado(true);
 
-    return(Res);
+
+
+
+    return(res2);
 }
 
 bool ReservaManager::VerificarMesaDisp(int NumeroM, Fecha &fecha){
@@ -135,9 +141,10 @@ void ReservaManager::Cargar(){
     Reserva x;
     x = Crear();
     if(ResArch.guardar(x)){
-        cout<<"Reserva guardada con exito :D"<<endl;
+        MostrarConfirmacion("Reserva guardada con exito :D",12);
     }
-    else{cout<<"No pudo guardarse la reserva D:"<<endl;}
+    else MostrarError("No pudo guardarse la reserva D:",12);
+
 
     system("pause");
 }
@@ -148,7 +155,7 @@ void ReservaManager::bajaLogica(){
     rlutil::setColor(4);
     DibujarRecuadro(X2-11,2,21,3);
     rlutil::setColor(15);
-    DibujarTitulo("DAR DE BAJA PRODUCTO", 3);
+    DibujarTitulo("DAR DE BAJA RESERVA", 3);
 
     DibujarRecuadro(X2-23,6,46,6);
     DibujarTitulo("Ingrese numero de reserva a eliminar:", 7);
@@ -174,12 +181,60 @@ void ReservaManager::bajaLogica(){
 }
 void ReservaManager::Listar(){
     Reserva x;
+    int Activos=0;
     int cantreg = ResArch.getCantidadRegistros();
 
     for(int i=0;i<cantreg;i++){
         x = ResArch.leer(i);
-        cout<<"--------------------------------------------------"<<endl;
-        Mostrar(x);
+        if(x.getEstado())
+        Activos++;
+    }
+    int registrosPorPagina = 2;
+    int paginaActual = 0;
+    int totalPaginas = (Activos + registrosPorPagina - 1) / registrosPorPagina;
+
+    while(true){
+        rlutil::cls();
+        int X = ObtenerCentroConsola() - 12;
+        int Y = 4;
+        int inicio = paginaActual * registrosPorPagina;
+        int fin = std::min(inicio + registrosPorPagina, Activos);
+        int registrosMostrados = 0;
+        int registrosActivosMostrados = 0;
+
+        for(int i=0;i<cantreg;i++){
+            x = ResArch.leer(i);
+            if(x.getEstado()){
+                if (registrosActivosMostrados >= inicio && registrosActivosMostrados < fin){
+                    Mostrar(x,X,Y);
+                    Y += 9;
+                    registrosMostrados++;
+                    }
+                    registrosActivosMostrados++;
+            }
+    }
+        int XXX = ObtenerPosicionXCentro("MOSTRANDO RESERVAS");
+        rlutil::locate(XXX, 2);
+        std::cout << "MOSTRANDO " << Activos << "  RESERVAS";
+        rlutil::setColor(4);
+        DibujarRecuadro(XXX-1,1,24,3);
+        rlutil::setColor(15);
+
+        int XX = ObtenerPosicionXCentro("Pagina X/X - Use las flechas para navegar");
+        rlutil::locate(XX, rlutil::trows() - 2); //trows es de rlutil, es para que te devuelva la cantidad de filas de la consola
+        std::cout << "Pagina " << (paginaActual + 1) << " de " << totalPaginas;
+        rlutil::locate(XX, rlutil::trows() - 1);
+        std::cout << "Use las flechas para navegar. ESC para salir.";
+
+        // entrada del usuario
+        int key = rlutil::getkey();
+        if (key == rlutil::KEY_RIGHT && paginaActual < totalPaginas - 1) {
+            paginaActual++;
+        } else if (key == rlutil::KEY_LEFT && paginaActual > 0) {
+            paginaActual--;
+        } else if (key == rlutil::KEY_ESCAPE) {
+            break; // Salir si se presiona ESC
+        }
     }
 }
 void ReservaManager::Mostrar(Reserva x){
@@ -239,45 +294,84 @@ void ReservaManager::Buscar(){
     Fecha fecha;
     Fecha f;
     int X = ObtenerCentroConsola();
+    int Y = 4;
 
     DibujarTitulo("BUSCAR POR FECHA", 3);
     rlutil::setColor(4);
-    DibujarRecuadro(X-9,2,17,3);//Recuadro Opcion BUSCAR POR ID
+    DibujarRecuadro(X-9,2,18,3); // Recuadro Opción BUSCAR POR ID
     rlutil::setColor(15);
 
-
-    DibujarRecuadro(X-23,6,46,6);//Recuadro General
+    DibujarRecuadro(X-23,6,46,6); // Recuadro General
     rlutil::locate(X,1);
     DibujarTitulo("Ingrese una fecha:", 7);
     rlutil::locate(X, 9);
     fecha.CargarFecha(true);
 
     rlutil::cls();
+    DibujarTitulo("RESERVAS PARA LA FECHA INGRESADA", 3);
 
-    bool hayfechas=false;
-
+    bool hayfechas = false;
     int cantreg = ResArch.getCantidadRegistros();
-    for (int i=0;i<cantreg;i++){
-        Res = ResArch.leer(i);
-        f = Res.getFecha();
-        if (f.getAnio()==fecha.getAnio() && f.getMes()==fecha.getMes()){
-            if(f.getDia()==fecha.getDia()){
-                    if(Res.getEstado()==true){
-                            Mostrar(Res);
+    int totalResultados = 0;
 
-                            hayfechas=true;
-                    }
+    for (int i = 0; i < cantreg; i++) {
+        Reserva res3 = ResArch.leer(i);
+        f = res3.getFecha();
+        if (f.getAnio() == fecha.getAnio() && f.getMes() == fecha.getMes() && f.getDia() == fecha.getDia()) {
+            if (res3.getEstado() == true) {
+                totalResultados++;
+            }
+        }
+    }
 
+    if (totalResultados == 0) {
+        MostrarError("No se encontraron reservas", 12);
+        rlutil::anykey();
+        return;
+    }
 
+    int registrosPorPagina = 2;
+    int paginaActual = 0;
+    int totalPaginas = (totalResultados + registrosPorPagina - 1) / registrosPorPagina;
+
+    while (true) {
+        rlutil::cls();
+        DibujarTitulo("RESERVAS PARA LA FECHA INGRESADA", 3);
+        int Y = 4;
+        int inicio = paginaActual * registrosPorPagina;
+        int fin = std::min(inicio + registrosPorPagina, totalResultados);
+        int registrosMostrados = 0;
+        int registrosActivosMostrados = 0;
+
+        for (int i = 0; i < cantreg; i++) {
+            Reserva res3 = ResArch.leer(i);
+            f = res3.getFecha();
+            if (f.getAnio() == fecha.getAnio() && f.getMes() == fecha.getMes() && f.getDia() == fecha.getDia() && res3.getEstado() == true) {
+                if (registrosActivosMostrados >= inicio && registrosActivosMostrados < fin) {
+                    Mostrar(res3, ObtenerCentroConsola() - 12, Y);
+                    Y += 9;
+                    registrosMostrados++;
+                }
+                registrosActivosMostrados++;
             }
         }
 
-    }
-    if(hayfechas==false){
-        MostrarError("No se encontraron reservas",12);
-    }
+        int XXX = ObtenerPosicionXCentro("Pagina X/X - Use las flechas para navegar");
+        rlutil::locate(XXX, rlutil::trows() - 2); //trows es de rlutil, es para que te devuelva la cantidad de filas de la consola
+        std::cout << "Pagina " << (paginaActual + 1) << " de " << totalPaginas;
+        rlutil::locate(XXX, rlutil::trows() - 1);
+        std::cout << "Use las flechas para navegar. ESC para salir.";
 
-
+        // entrada del usuario
+        int key = rlutil::getkey();
+        if (key == rlutil::KEY_RIGHT && paginaActual < totalPaginas - 1) {
+            paginaActual++;
+        } else if (key == rlutil::KEY_LEFT && paginaActual > 0) {
+            paginaActual--;
+        } else if (key == rlutil::KEY_ESCAPE) {
+            break; // Salir si se presiona ESC
+        }
+    }
 }
 
 
