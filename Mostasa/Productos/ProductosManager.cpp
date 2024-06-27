@@ -318,7 +318,7 @@ void ProductoManager::Modificar(){
 void ProductoManager::Buscar(){
     int pos,ID;
     Producto x;
-     int X = ObtenerCentroConsola();
+    int X = ObtenerCentroConsola();
 
     DibujarTitulo("BUSCAR POR ID", 3);
     rlutil::setColor(4);

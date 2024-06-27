@@ -317,7 +317,7 @@
 	<iostream>
 	"../Productos/Productos.h"
 
-1719453771 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productosmanager.cpp
+1719460405 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\productos\productosmanager.cpp
 	"../Productos/ProductosManager.h"
 	"../Funciones/ValidacionesGlobales.h"
 	<iostream>
@@ -562,7 +562,7 @@
 	<sys/types.h>
 	<sys/time.h>
 
-1719366529 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas\reservasmanager.h
+1719462210 c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas\reservasmanager.h
 	"../Reservas/Reservas.h"
 	"../Reservas/ReservasArchivo.h"
 
@@ -585,7 +585,7 @@
 	<string>
 	<cstring>
 
-1719454186 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas\reservasmanager.cpp
+1719461555 source:c:\users\aby\desktop\repositorio labo2\proyecto-final-lab-ii\mostasa\reservas\reservasmanager.cpp
 	"ReservasManager.h"
 	<iostream>
 	<string>

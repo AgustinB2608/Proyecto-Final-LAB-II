@@ -13,6 +13,7 @@ public:
     void Cargar();
     void Listar();
     void Mostrar(Reserva x);
+    void Mostrar(Reserva x, int X, int &Y);
     void Modificar();
     void Buscar();
 

@@ -144,7 +144,15 @@ void ReservaManager::Cargar(){
 void ReservaManager::bajaLogica(){
     Reserva x;
     int Numero, pos;
-    cout<<"Ingrese numero de reserva a eliminar: "<<endl;
+    int X2 = ObtenerCentroConsola();
+    rlutil::setColor(4);
+    DibujarRecuadro(X2-11,2,21,3);
+    rlutil::setColor(15);
+    DibujarTitulo("DAR DE BAJA PRODUCTO", 3);
+
+    DibujarRecuadro(X2-23,6,46,6);
+    DibujarTitulo("Ingrese numero de reserva a eliminar:", 7);
+    rlutil::locate(X2,9);
     cin>>Numero;
 
     pos = ResArch.buscar(Numero);
@@ -152,16 +160,16 @@ void ReservaManager::bajaLogica(){
     if (pos >= 0) {
         Reserva x = ResArch.leer(pos);
         if(x.getNumero()==-1){
-            cout<<"No se pudo abrir el archivo"<<endl;
+            MostrarError("No se pudo abrir el archivo",12);
             return;
         }
         x.setEstado(false);
         if(ResArch.Modificar(x,pos)){
-            cout<<"Elimando correctamente."<<endl;
+            MostrarConfirmacion("Elimando correctamente.",12);
         }
-        else  cout<<"No se ha eliminado la reserva."<<endl;
+        else  MostrarError("No se ha eliminado la reserva.",12);
     }
-    else{cout<<"No se pudo eliminar, la reserva no existe."<<endl;}
+    else MostrarError("No se pudo eliminar, la reserva no existe.",12);
 
 }
 void ReservaManager::Listar(){
@@ -176,36 +184,99 @@ void ReservaManager::Listar(){
 }
 void ReservaManager::Mostrar(Reserva x){
   if ((x.getEstado())==true){
-    cout << "Numero de reserva: " << x.getNumero() << endl;
-    cout << "Numero de mesa: " << x.getNumeroMesa() << endl;
-    cout << "Numero de personas: " << x.getNumeroPersonas() << endl;
-    cout << "ID del cliente: " << x.getIDCliente() << endl;
-    cout << "ID del producto: " << x.getIDProducto() << endl;
-    Fecha fecha = x.getFecha();
-    cout << "Fecha: " <<endl;
-    fecha.MostrarFecha();
+        int X = ObtenerCentroConsola()- 12;
+        int Y = 4;
+        int XX = ObtenerPosicionXCentro("MOSTRANDO RESERVA NUMERO: ");
+        rlutil::locate(XX,3);
+        cout<<"MOSTRANDO RESERVA NUMERO: "<< x.getNumero() <<endl;
+
+        rlutil::locate(X, Y + 1);
+        cout << "Numero de reserva: " << x.getNumero() << endl;
+        rlutil::locate(X, Y + 2);
+        cout << "Numero de mesa: " << x.getNumeroMesa() << endl;
+        rlutil::locate(X, Y + 3);
+        cout << "Numero de personas: " << x.getNumeroPersonas() << endl;
+        rlutil::locate(X, Y + 4);
+        cout << "ID del cliente: " << x.getIDCliente() << endl;
+        rlutil::locate(X, Y + 5);
+        cout << "ID del producto: " << x.getIDProducto() << endl;
+        Fecha fecha = x.getFecha();
+        rlutil::locate(X, Y + 6);
+        cout << "Fecha: " <<endl;
+        rlutil::locate(X+7, Y + 6);  ///ACOMODO LA FECHA AL LADO DE FECHA:
+        fecha.MostrarFecha();
+        rlutil::locate(X, Y + 7);
+        cout<<"-----------------------"<<endl;
+    }
+
+}
+
+void ReservaManager::Mostrar(Reserva x, int X, int &Y){
+  if ((x.getEstado())==true){
+        rlutil::locate(X, Y + 1);
+        cout << "Numero de reserva: " << x.getNumero() << endl;
+        rlutil::locate(X, Y + 2);
+        cout << "Numero de mesa: " << x.getNumeroMesa() << endl;
+        rlutil::locate(X, Y + 3);
+        cout << "Numero de personas: " << x.getNumeroPersonas() << endl;
+        rlutil::locate(X, Y + 4);
+        cout << "ID del cliente: " << x.getIDCliente() << endl;
+        rlutil::locate(X, Y + 5);
+        cout << "ID del producto: " << x.getIDProducto() << endl;;
+        rlutil::locate(X, Y + 6);
+        Fecha fecha = x.getFecha();
+        cout << "Fecha: " <<endl;
+        rlutil::locate(X+7, Y + 6);  ///ACOMODO LA FECHA AL LADO DE FECHA:
+        fecha.MostrarFecha();
+        rlutil::locate(X, Y + 7);
+        cout<<"-----------------------"<<endl;
     }
 
 
-
 }
+
 void ReservaManager::Buscar(){
     Fecha fecha;
     Fecha f;
-    cout<<"Ingrese una fecha: "<<endl;
+    int X = ObtenerCentroConsola();
+
+    DibujarTitulo("BUSCAR POR FECHA", 3);
+    rlutil::setColor(4);
+    DibujarRecuadro(X-9,2,17,3);//Recuadro Opcion BUSCAR POR ID
+    rlutil::setColor(15);
+
+
+    DibujarRecuadro(X-23,6,46,6);//Recuadro General
+    rlutil::locate(X,1);
+    DibujarTitulo("Ingrese una fecha:", 7);
+    rlutil::locate(X, 9);
     fecha.CargarFecha(true);
+
+    rlutil::cls();
+
+    bool hayfechas=false;
+
     int cantreg = ResArch.getCantidadRegistros();
     for (int i=0;i<cantreg;i++){
         Res = ResArch.leer(i);
         f = Res.getFecha();
         if (f.getAnio()==fecha.getAnio() && f.getMes()==fecha.getMes()){
-            if(f.getDia()==fecha.getDia()&& Res.getEstado()==true){
-                   Mostrar(Res);
-                   cout<<"---------------------------------------"<<endl;
+            if(f.getDia()==fecha.getDia()){
+                    if(Res.getEstado()==true){
+                            Mostrar(Res);
+
+                            hayfechas=true;
+                    }
+
+
             }
         }
 
     }
+    if(hayfechas==false){
+        MostrarError("No se encontraron reservas",12);
+    }
+
 
 }
 
