@@ -25,7 +25,7 @@ El programa proporciona un sistema completo para la gestión del restaurante, in
 
 
 # 🚀 **Funcionalidades del Sistema**
-# Menú Principal
+### Menú Principal
 ### Menú Productos
     1. 📦 Listar stock de productos
     2. ➕ Cargar producto
